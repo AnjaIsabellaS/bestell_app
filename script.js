@@ -2,6 +2,7 @@ function init() {
     renderAllMenus(); 
 }
 
+
 function renderAllMenus() {
     const burgerRef = document.getElementById('burger-sandwiches');
     const pizzaRef = document.getElementById('pizza');
