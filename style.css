@@ -1,0 +1,21 @@
+nav {
+    background-color: rgba(231, 108, 31, 1);
+    width: 100%;
+    padding-top: 49px;
+    padding-bottom: 41px;
+    padding-left: 120px;
+    padding-right: 40px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.bestell-app-logo {
+    width: 93px;
+    height: 38px;
+}
+
+.burger-menu {
+    width: 45px;
+    height: 35px;
+}
