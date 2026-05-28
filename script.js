@@ -13,13 +13,13 @@ function renderAllMenus() {
     saladRef.innerHTML = "";
 
     for (let index = 0; index < menus.length; index++) {
-        const item = menus[index];
+        const selectedMenu = menus[index];
 
-        if (item.category === "Burger") {
+        if (selectedMenu.category === "Burger") {
             burgerRef.innerHTML += getMenuTemplate(index);
-        } else if (item.category === "Pizza") {                 // Nutzt das gleiche Template-System
+        } else if (selectedMenu.category === "Pizza") {          
             pizzaRef.innerHTML += getMenuTemplate(index); 
-        } else if (item.category === "Salad") {
+        } else if (selectedMenu.category === "Salad") {
             saladRef.innerHTML += getMenuTemplate(index);
         }
     }

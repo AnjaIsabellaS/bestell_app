@@ -1,0 +1,22 @@
+function getMenuTemplate() {
+    return `
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    `;
+}
