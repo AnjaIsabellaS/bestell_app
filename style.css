@@ -171,39 +171,89 @@ h3 {
 }
 
 
-
-/*Container-Box-Design der einzelnen Menüs*/
-
+/* Menü-Container*/
 .container-menu {
-    background-color:rgba(253, 234, 220, 1);
+    background-color: rgba(253, 234, 220, 1);
     width: 713px;
     height: 141px;
     border-radius: 12px;
+    box-sizing: border-box;
+    padding: 10px; 
 
     display: flex;
     flex-direction: row;
- 
+    align-items: center; 
+    position: relative; 
 }
 
-/* Der Content des Containers der Menüs*/
 
 .menu-image {
     width: 207px;
     height: 121px;
-    padding: 10px;
+    object-fit: cover; 
+    border-radius: 8px; 
 }
 
 
-.title-and-price {
+.title-and-description {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 15px;
-    padding-left: 56px;
-    padding-right: 12px;
-    padding-top: 12px;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1; 
+    padding-left: 15px;
+    padding-right: 100px; 
+    align-self: flex-start; 
+}
 
+.menu-title {
     font-family: 'Palanquin';
     font-weight: 600;
     font-size: 24px;
+    color: #363534;
+    line-height: 1;
+}
+
+.menu-description {
+    font-family: 'Palanquin';
+    font-weight: 500;
+    font-size: 16px;
+    color: rgba(54, 53, 52, 1);
+
+    margin-top: 4px;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+
+.menu-price {
+    font-family: 'Palanquin';
+    font-weight: 600;
+    font-size: 24px;
+    color: #363534;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    line-height: 1;
+}
+
+
+.add-basket-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 25px;
+    background-color: white;
+    color: #363534;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-family: 'Palanquin';
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.05); 
+    transition: background-color 0.2s ease;
+}
+
+.add-basket-btn:hover {
+    background-color: #f7f7f7;
 }

@@ -117,16 +117,14 @@ function getMenuTemplate(index) {
     const menu = menus[index]; 
 
     return `
-        <div class="container-menu">
-            <img class="menu-image" src="${menu.image}" alt="${menu.name}">
-            <div class="menu-text">
-                <div class="title-and-price">
-                <p class="menu-title">${menu.name}</p>
-                <p class="menu-price">${menu.price.toFixed(2)} €</p>
-                </div>
-                <p class="menu-description">${menu.description}</p>
-                
-            </div>
+      <div class="container-menu">
+        <img class="menu-image" src="${menu.image}" alt="${menu.name}">
+        <div class="title-and-description">
+            <h4 class="menu-title">${menu.name}</h4>
+            <p class="menu-description">${menu.description}</p>
         </div>
+        <div class="menu-price">${menu.price.toFixed(2).replace('.', ',')}€</div>
+        <button class="add-basket-btn">Add to basket</button>
+     </div>
     `;
 }
