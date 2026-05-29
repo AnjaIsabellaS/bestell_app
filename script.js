@@ -120,9 +120,12 @@ function getMenuTemplate(index) {
         <div class="container-menu">
             <img class="menu-image" src="${menu.image}" alt="${menu.name}">
             <div class="menu-text">
+                <div class="title-and-price">
                 <p class="menu-title">${menu.name}</p>
-                <p class="menu-description">${menu.description}</p>
                 <p class="menu-price">${menu.price.toFixed(2)} €</p>
+                </div>
+                <p class="menu-description">${menu.description}</p>
+                
             </div>
         </div>
     `;

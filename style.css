@@ -135,6 +135,7 @@ h3 {
     
     padding-left: 170px; 
     gap: 24px; 
+    
 }
 
 
@@ -148,10 +149,61 @@ h3 {
 
 
 .category-text {
-    font-family: 'Palanquin', sans-serif;
+    font-family: 'Palanquin';
     font-weight: 700;
     font-size: 40px;
     color: white;
     margin: 0; 
     margin-top: -6px; 
+}
+
+
+/*Menü-Bereich für alle Menüs*/
+
+.menu_layout {
+    padding-top: 23px;
+    padding-bottom: 45px;
+    padding-left: 120px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+
+/*Container-Box-Design der einzelnen Menüs*/
+
+.container-menu {
+    background-color:rgba(253, 234, 220, 1);
+    width: 713px;
+    height: 141px;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: row;
+ 
+}
+
+/* Der Content des Containers der Menüs*/
+
+.menu-image {
+    width: 207px;
+    height: 121px;
+    padding: 10px;
+}
+
+
+.title-and-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+    padding-left: 56px;
+    padding-right: 12px;
+    padding-top: 12px;
+
+    font-family: 'Palanquin';
+    font-weight: 600;
+    font-size: 24px;
 }
