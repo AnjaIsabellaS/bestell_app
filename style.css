@@ -161,7 +161,7 @@ h3 {
 /*Menü-Bereich für alle Menüs*/
 
 .menu_layout {
-    padding-top: 23px;
+    padding-top: 30px;
     padding-bottom: 45px;
     padding-left: 120px;
 
@@ -256,4 +256,24 @@ h3 {
 
 .add-basket-btn:hover {
     background-color: #f7f7f7;
+}
+
+
+footer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 128px;
+   gap: 72px;
+   padding-top: 73px;
+   padding-bottom: 33px;
+   margin-top: 78px;;
+
+    background-color: rgba(231, 108, 31, 1);
+    font-family: 'Palanquin';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    color:white;
+
 }
