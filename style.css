@@ -119,6 +119,7 @@ h2 {
 
 h3 {
     font-family: 'Palanquin';
+   
     font-weight: 700;
     font-size: 40px;
     color: white;
@@ -274,12 +275,16 @@ main {
 
 .basket-wrapper {
     width: 435px;
+    height: 794px;
     background-color: #363534; 
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
-    padding: 30px 24px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 48px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -299,6 +304,7 @@ main {
 
 .basket-wrapper h3 {
     font-size: 32px;
+    color:rgba(253, 234, 220, 1);
     font-weight: 700;
     margin: 0 0 24px 0;
     text-align: center;
@@ -309,11 +315,12 @@ main {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 10px;
 }
 
 
 .basket-item-card {
+    margin-bottom: 0px;
     background-color: rgba(253, 234, 220, 1);
     border-radius: 20px;
     padding: 20px;
@@ -348,8 +355,8 @@ main {
 
 .ctrl-btn {
     background-color: white;
-    border: 1px solid #E76C1F;
-    color: #E76C1F;
+    border: 1px solid black;
+    color: black;
     font-size: 18px;
     font-weight: 700;
     width: 32px;
@@ -419,7 +426,7 @@ main {
 
 .summary-divider {
     border: none;
-    border-top: 2px solid #575553;
+    border-top: 3px solid white;
     margin: 16px 0;
 }
 
