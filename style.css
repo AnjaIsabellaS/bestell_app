@@ -1,15 +1,10 @@
-/* ==========================================
-   GLOBAL STYLES & FONTS
-   ========================================== */
 * {
     margin: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
 
-/* ==========================================
-   NAVIGATION
-   ========================================== */
+/* navigation */
 nav {
     background-color: rgba(231, 108, 31, 1);
     width: 100%;
@@ -34,9 +29,7 @@ nav {
     object-fit: contain;
 }
 
-/* ==========================================
-   HEADER & HERO SECTION
-   ========================================== */
+/* header & hero section */
 header {
     display: flex;
     flex-direction: column;
@@ -118,9 +111,7 @@ h3 {
     color: white;
 }
 
-/* ==========================================
-   MAIN CONTENT & CATEGORIES
-   ========================================== */
+/* main content & categories */
 main {
     position: relative; /* Wichtig, damit der absolute Basket sich an main orientiert */
     width: 100%;
@@ -174,9 +165,7 @@ main {
     gap: 16px;
 }
 
-/* ==========================================
-   MENU CARDS (SPEISEKARTE)
-   ========================================== */
+/* menu cards */
 .container-menu {
     background-color: rgba(253, 234, 220, 1);
     width: 713px;
@@ -258,9 +247,7 @@ main {
     background-color: #f7f7f7;
 }
 
-/* ==========================================
-   BASKET CONTAINER (WARENKORB STRUKTUR)
-   ========================================== */
+/* basket container */
 .basket-wrapper {
     width: 435px;
     background-color: #363534; 
@@ -269,7 +256,6 @@ main {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     padding: 30px 24px;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -301,9 +287,7 @@ main {
     gap: 16px;
 }
 
-/* ==========================================
-   BASKET ITEM CARDS & NEW CONTROLS
-   ========================================== */
+/* basket item cards */
 .basket-item-card {
     background-color: rgba(253, 234, 220, 1);
     border-radius: 20px;
@@ -384,9 +368,7 @@ main {
     font-weight: 700;
 }
 
-/* ==========================================
-   BASKET SUMMARY & CHECKOUT
-   ========================================== */
+/* basket summary and checkout */
 .basket-summary {
     width: 100%;
     margin-top: 35px;
@@ -425,17 +407,16 @@ main {
 }
 
 .empty-text {
-    color: #A0A0A0;
+    font-family: 'Palanquin';
+    font-size: 24px;
+    color:rgba(253, 234, 220, 1);
     text-align: center;
     font-size: 16px;
     padding: 30px 0;
     margin: 0;
-    font-style: italic;
 }
 
-/* ==========================================
-   FOOTER & UTILITIES
-   ========================================== */
+/* footer */
 footer {
     display: flex;
     justify-content: center;
@@ -446,7 +427,7 @@ footer {
     padding-bottom: 33px;
     margin-top: 78px;
 
-    background-color: rgba(231, 108, 31, 1);
+    baround-color: rgba(231, 108, 31, 1);
     font-family: 'Palanquin';
     font-weight: 400;
     font-size: 18px;

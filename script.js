@@ -174,7 +174,7 @@ function renderBasket() {
 function getEmptyBasketTemplate() {
     return `
         <h3>Your Basket</h3>
-        <p class="empty-text">Wähle leckere Gerichte aus der Karte und füge sie deinem Warenkorb hinzu.</p>
+        <p class="empty-text">Nothing here yet. Go ahead and choose something delicious!</p>
     `;
 }
 
