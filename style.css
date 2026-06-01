@@ -1,10 +1,15 @@
+/* ==========================================
+   GLOBAL STYLES & FONTS
+   ========================================== */
 * {
     margin: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
 
-
+/* ==========================================
+   NAVIGATION
+   ========================================== */
 nav {
     background-color: rgba(231, 108, 31, 1);
     width: 100%;
@@ -17,13 +22,11 @@ nav {
     justify-content: space-between;
 }
 
-
 .bestell-app-logo {
     width: 93px;
     height: 38px;
     object-fit: contain;
 }
-
 
 .burger-menu {
     width: 45px;
@@ -31,20 +34,20 @@ nav {
     object-fit: contain;
 }
 
-
+/* ==========================================
+   HEADER & HERO SECTION
+   ========================================== */
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-
 .hero-image {
     width: 100%;
     height: auto;
     display: block;
 }
-
 
 .burger-house-logo {
     width: 200px;
@@ -54,14 +57,12 @@ header {
     z-index: 1;
 }
 
-
 .hero-title {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 26px;
 }
-
 
 .rating {
     display: flex;
@@ -72,13 +73,11 @@ header {
     padding: 4px 5px;
 }
 
-
 .title-star {
     width: 23px;
     height: 23px;
     object-fit: contain;
 }
-
 
 .rating-stars {
     font-family: 'Palanquin Dark';
@@ -87,14 +86,12 @@ header {
     color: rgba(54, 53, 52, 1);
 }
 
-
 .rating-amount {
     font-family: 'Palanquin';
     font-weight: 400;
     font-size: 18px;
     color: rgba(114, 109, 109, 1);
 }
-
 
 h1 {
     font-family: 'Palanquin Dark';
@@ -103,11 +100,9 @@ h1 {
     font-weight: 700;
 }
 
-
 h1 span {
     color: rgba(54, 53, 52, 1);
 }
-
 
 h2 {
     font-family: 'Palanquin';
@@ -116,30 +111,28 @@ h2 {
     padding-bottom: 52px;
 }
 
-
 h3 {
     font-family: 'Palanquin';
-   
     font-weight: 700;
     font-size: 40px;
     color: white;
 }
 
-
+/* ==========================================
+   MAIN CONTENT & CATEGORIES
+   ========================================== */
 main {
-    position: relative; 
+    position: relative; /* Wichtig, damit der absolute Basket sich an main orientiert */
     width: 100%;
     box-sizing: border-box;
     padding-right: 0; 
 }
-
 
 .category-section {
     width: 100%;
     margin-top: 40px;
     min-height: 200px;
 }
-
 
 .category-bar {
     background-color: rgba(231, 108, 31, 1);
@@ -153,7 +146,6 @@ main {
     gap: 24px; 
 }
 
-
 .category-icon {
     width: 88px;
     height: 91px;
@@ -161,7 +153,6 @@ main {
     align-self: flex-end; 
     margin-bottom: -3px; 
 }
-
 
 .category-text {
     font-family: 'Palanquin';
@@ -172,19 +163,20 @@ main {
     margin-top: -6px; 
 }
 
-
 .menu_layout {
     padding-top: 30px;
     padding-bottom: 45px;
     padding-left: 120px;
-    padding-right: 480px; 
+    padding-right: 480px; /* Platzhalter, damit die Karten nicht unter den Basket rutschen */
 
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-
+/* ==========================================
+   MENU CARDS (SPEISEKARTE)
+   ========================================== */
 .container-menu {
     background-color: rgba(253, 234, 220, 1);
     width: 713px;
@@ -199,14 +191,12 @@ main {
     position: relative; 
 }
 
-
 .menu-image {
     width: 207px;
     height: 121px;
     object-fit: cover; 
     border-radius: 8px; 
 }
-
 
 .title-and-description {
     display: flex;
@@ -218,7 +208,6 @@ main {
     align-self: flex-start; 
 }
 
-
 .menu-title {
     font-family: 'Palanquin';
     font-weight: 600;
@@ -226,7 +215,6 @@ main {
     color: #363534;
     line-height: 1;
 }
-
 
 .menu-description {
     font-family: 'Palanquin';
@@ -238,7 +226,6 @@ main {
     line-height: 1.2;
 }
 
-
 .menu-price {
     font-family: 'Palanquin';
     font-weight: 600;
@@ -249,7 +236,6 @@ main {
     right: 25px;
     line-height: 1;
 }
-
 
 .add-basket-btn {
     position: absolute;
@@ -272,19 +258,17 @@ main {
     background-color: #f7f7f7;
 }
 
-
+/* ==========================================
+   BASKET CONTAINER (WARENKORB STRUKTUR)
+   ========================================== */
 .basket-wrapper {
     width: 435px;
-    height: 794px;
     background-color: #363534; 
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 30px;
-    padding-right: 48px;
+    padding: 30px 24px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -292,35 +276,35 @@ main {
     color: white;
     font-family: 'Palanquin', sans-serif;
 
-    position: fixed;   
-    top: 100px;          
-    right: 0;            
+    /* EXAKTE POSITIONIERUNG HÖHE BURGER-BALKEN */
+    position: absolute;  
+
+    top: 0px;           
+    right: 0;             
     z-index: 100;         
     
     max-height: calc(100vh - 140px);
     overflow-y: auto;    
 }
 
-
 .basket-wrapper h3 {
     font-size: 32px;
-    color:rgba(253, 234, 220, 1);
     font-weight: 700;
     margin: 0 0 24px 0;
     text-align: center;
 }
 
-
 #basket-items {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 16px;
 }
 
-
+/* ==========================================
+   BASKET ITEM CARDS & NEW CONTROLS
+   ========================================== */
 .basket-item-card {
-    margin-bottom: 0px;
     background-color: rgba(253, 234, 220, 1);
     border-radius: 20px;
     padding: 20px;
@@ -329,14 +313,12 @@ main {
     color: #363534;
 }
 
-
 .basket-item-card h5 {
     margin: 0;
     font-size: 20px;
     font-weight: 700;
     line-height: 1.3;
 }
-
 
 .basket-item-controls {
     display: flex;
@@ -345,18 +327,16 @@ main {
     margin-top: 16px;
 }
 
-
 .amount-buttons {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-
 .ctrl-btn {
     background-color: white;
-    border: 1px solid black;
-    color: black;
+    border: 1px solid #E76C1F;
+    color: #E76C1F;
     font-size: 18px;
     font-weight: 700;
     width: 32px;
@@ -371,12 +351,10 @@ main {
     user-select: none;
 }
 
-
 .ctrl-btn:hover:not(:disabled) {
     background-color: #E76C1F;
     color: white;
 }
-
 
 .delete-btn {
     background: transparent;
@@ -388,13 +366,11 @@ main {
     cursor: pointer;
 }
 
-
 .icon-img {
     width: 22px;
     height: 22px;
     object-fit: contain;
 }
-
 
 .ctrl-btn:disabled {
     border-color: #b0afae;
@@ -408,12 +384,13 @@ main {
     font-weight: 700;
 }
 
-
+/* ==========================================
+   BASKET SUMMARY & CHECKOUT
+   ========================================== */
 .basket-summary {
     width: 100%;
     margin-top: 35px;
 }
-
 
 .summary-row {
     display: flex;
@@ -423,19 +400,16 @@ main {
     color: white;
 }
 
-
 .summary-divider {
     border: none;
-    border-top: 3px solid white;
+    border-top: 2px solid #575553;
     margin: 16px 0;
 }
-
 
 .total-row {
     font-size: 24px;
     font-weight: 700;
 }
-
 
 .buy-now-btn {
     width: 100%;
@@ -450,7 +424,6 @@ main {
     margin-top: 30px;
 }
 
-
 .empty-text {
     color: #A0A0A0;
     text-align: center;
@@ -460,7 +433,9 @@ main {
     font-style: italic;
 }
 
-
+/* ==========================================
+   FOOTER & UTILITIES
+   ========================================== */
 footer {
     display: flex;
     justify-content: center;
@@ -478,7 +453,6 @@ footer {
     line-height: 120%;
     color: white;
 }
-
 
 .d-none {
     display: none !important;

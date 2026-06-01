@@ -85,28 +85,27 @@ const menus = [
     }
 ];
 
-
+// Leerer Warenkorb
 const basket = [];
-
 
 function init() { 
     renderAllMenus(); 
+    renderBasket(); 
 }
-
 
 function renderAllMenus() {
     const burgerRef = document.getElementById('burger-sandwiches');
     const pizzaRef = document.getElementById('pizza');
     const saladRef = document.getElementById('salad');
 
-    burgerRef.innerHTML = "";
+    burgerRef.innerHTML = ""; 
     pizzaRef.innerHTML = "";
     saladRef.innerHTML = "";
 
     for (let index = 0; index < menus.length; index++) {
         const selectedMenu = menus[index];
 
-        if (selectedMenu.category === "Burger") {
+        if (selectedMenu.category === "Burger") { 
             burgerRef.innerHTML += getMenuTemplate(index);
         } else if (selectedMenu.category === "Pizza") {          
             pizzaRef.innerHTML += getMenuTemplate(index); 
@@ -116,8 +115,7 @@ function renderAllMenus() {
     }
 }
 
-
-function getMenuTemplate(index) {
+function getMenuTemplate(index) { 
     const menu = menus[index]; 
 
     return `
@@ -134,32 +132,29 @@ function getMenuTemplate(index) {
 }
 
 
-function getMenuIndex(menuName) {
-    let namesOnly = [];
-    
+function findMenuInBasket(menuName) {
     for (let i = 0; i < basket.length; i++) {
-        namesOnly.push(basket[i].name);
+        if (basket[i].name === menuName) {
+            return basket[i]; 
+        }
     }
-    return namesOnly.indexOf(menuName);
+    return null; 
 }
 
 
-function addToBasket(index) {
+function addToBasket(index) {          
     const selectedMenu = menus[index];
-    const menuIndex = getMenuIndex(selectedMenu.name);
+    const existingMenu = findMenuInBasket(selectedMenu.name);
 
-    if (menuIndex === -1) {
+    if (existingMenu !== null) {
+        existingMenu.amount++;
+    } else {
         basket.push({
             name: selectedMenu.name,
             price: selectedMenu.price,
             amount: 1
         });
-    } else {
-        basket[menuIndex].amount++;
     }
-
-    const basketRef = document.getElementById('basket');
-    basketRef.classList.remove('d-none');
     
     renderBasket();
 }
@@ -168,11 +163,19 @@ function renderBasket() {
     const basketRef = document.getElementById('basket');
     
     if (basket.length === 0) {
-        basketRef.classList.add('d-none');
+        basketRef.innerHTML = getEmptyBasketTemplate();
     } else {
         const prices = calculateBasketPrices();
         basketRef.innerHTML = getMainBasketTemplate(prices);
     }
+}
+
+
+function getEmptyBasketTemplate() {
+    return `
+        <h3>Your Basket</h3>
+        <p class="empty-text">Wähle leckere Gerichte aus der Karte und füge sie deinem Warenkorb hinzu.</p>
+    `;
 }
 
 function calculateBasketPrices() {
@@ -237,12 +240,10 @@ function getBasketItemTemplate(i) {
     `;
 }
 
-
 function increaseAmount(i) {
     basket[i].amount++;
     renderBasket();
 }
-
 
 function decreaseAmount(i) {
     if (basket[i].amount > 1) {
@@ -250,7 +251,6 @@ function decreaseAmount(i) {
         renderBasket();
     }
 }
-
 
 function deleteFromBasket(i) {
     basket.splice(i, 1);
