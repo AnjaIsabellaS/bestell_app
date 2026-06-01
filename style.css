@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+
 nav {
     background-color: rgba(231, 108, 31, 1);
     width: 100%;
@@ -26,7 +33,7 @@ nav {
 
 
 header {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -49,7 +56,7 @@ header {
 
 
 .hero-title {
-    display:flex;
+    display: flex;
     flex-direction: row;
     align-items: center;
     gap: 26px;
@@ -74,7 +81,7 @@ header {
 
 
 .rating-stars {
-    font-family:'Palanquin Dark';
+    font-family: 'Palanquin Dark';
     font-weight: 400;
     font-size: 20px;
     color: rgba(54, 53, 52, 1);
@@ -82,15 +89,15 @@ header {
 
 
 .rating-amount {
-    font-family:'Palanquin';
+    font-family: 'Palanquin';
     font-weight: 400;
     font-size: 18px;
-    color:rgba(114, 109, 109, 1);
+    color: rgba(114, 109, 109, 1);
 }
 
 
 h1 {
-    font-family:'Palanquin Dark';
+    font-family: 'Palanquin Dark';
     color: rgba(231, 108, 31, 1);
     font-size: 48px;
     font-weight: 700;
@@ -103,7 +110,7 @@ h1 span {
 
 
 h2 {
-    font-family:'Palanquin';
+    font-family: 'Palanquin';
     font-weight: 700;
     font-size: 24px;
     padding-bottom: 52px;
@@ -111,10 +118,18 @@ h2 {
 
 
 h3 {
-    font-family:'Palanquin';
+    font-family: 'Palanquin';
     font-weight: 700;
     font-size: 40px;
     color: white;
+}
+
+
+main {
+    position: relative; 
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 0; 
 }
 
 
@@ -135,7 +150,6 @@ h3 {
     
     padding-left: 170px; 
     gap: 24px; 
-    
 }
 
 
@@ -158,12 +172,11 @@ h3 {
 }
 
 
-/*Menü-Bereich für alle Menüs*/
-
 .menu_layout {
     padding-top: 30px;
     padding-bottom: 45px;
     padding-left: 120px;
+    padding-right: 480px; 
 
     display: flex;
     flex-direction: column;
@@ -171,7 +184,6 @@ h3 {
 }
 
 
-/* Menü-Container*/
 .container-menu {
     background-color: rgba(253, 234, 220, 1);
     width: 713px;
@@ -205,6 +217,7 @@ h3 {
     align-self: flex-start; 
 }
 
+
 .menu-title {
     font-family: 'Palanquin';
     font-weight: 600;
@@ -213,12 +226,12 @@ h3 {
     line-height: 1;
 }
 
+
 .menu-description {
     font-family: 'Palanquin';
     font-weight: 500;
     font-size: 16px;
     color: rgba(54, 53, 52, 1);
-
     margin-top: 4px;
     margin-bottom: 0;
     line-height: 1.2;
@@ -259,21 +272,207 @@ h3 {
 }
 
 
+.basket-wrapper {
+    width: 435px;
+    background-color: #363534; 
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding: 30px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: 'Palanquin', sans-serif;
+
+    position: fixed;   
+    top: 100px;          
+    right: 0;            
+    z-index: 100;         
+    
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;    
+}
+
+
+.basket-wrapper h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 24px 0;
+    text-align: center;
+}
+
+
+#basket-items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+.basket-item-card {
+    background-color: rgba(253, 234, 220, 1);
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #363534;
+}
+
+
+.basket-item-card h5 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+
+.basket-item-controls {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-top: 16px;
+}
+
+
+.amount-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.ctrl-btn {
+    background-color: white;
+    border: 1px solid #E76C1F;
+    color: #E76C1F;
+    font-size: 18px;
+    font-weight: 700;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+    user-select: none;
+}
+
+
+.ctrl-btn:hover:not(:disabled) {
+    background-color: #E76C1F;
+    color: white;
+}
+
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    margin-right: 8px; 
+    cursor: pointer;
+}
+
+
+.icon-img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+
+.ctrl-btn:disabled {
+    border-color: #b0afae;
+    color: #b0afae;
+    cursor: not-allowed;
+    background-color: #f2f2f2;
+}
+
+.basket-item-price {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+.basket-summary {
+    width: 100%;
+    margin-top: 35px;
+}
+
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+
+.summary-divider {
+    border: none;
+    border-top: 2px solid #575553;
+    margin: 16px 0;
+}
+
+
+.total-row {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+.buy-now-btn {
+    width: 100%;
+    background-color: #E76C1F; 
+    color: white;
+    border: none;
+    border-radius: 35px;
+    padding: 18px;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+
+.empty-text {
+    color: #A0A0A0;
+    text-align: center;
+    font-size: 16px;
+    padding: 30px 0;
+    margin: 0;
+    font-style: italic;
+}
+
+
 footer {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 128px;
-   gap: 72px;
-   padding-top: 73px;
-   padding-bottom: 33px;
-   margin-top: 78px;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 128px;
+    gap: 72px;
+    padding-top: 73px;
+    padding-bottom: 33px;
+    margin-top: 78px;
 
     background-color: rgba(231, 108, 31, 1);
     font-family: 'Palanquin';
     font-weight: 400;
     font-size: 18px;
     line-height: 120%;
-    color:white;
+    color: white;
+}
 
+
+.d-none {
+    display: none !important;
 }
