@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BestellApp</title>
-    <link rel="icon" type="image/x-icon" href="./assets/icons/burger_house_logo.png"/>
+    <link rel="icon" type="image/x-icon" href="./assets/icons/burger_house_logo.png" />
     <link rel="stylesheet" href="./assets/styles/standard.css" />
     <link rel="stylesheet" href="./assets/styles/fonts.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
 </head>
+
 <body onload="init()">
     <nav>
         <img class="bestell-app-logo" src="./assets/icons/bestell_app_logo.png" alt="Bestell App Logo">
@@ -28,45 +30,48 @@
         </section>
         <h2>The best Burgers, Pizza and Greens, all in one great place.</h2>
     </header>
-<main>
-    <section class="category-section">
-        <div class="category-bar">
-            <img class="category-icon" src="./assets/icons/burger_icon.png" alt="Burger Icon">
-            <h3 class="category-text">Burger & Sandwiches</h3>
-        </div>
-        <div class="menu_layout" id="burger-sandwiches"></div>
-    </section>
+    <main>
+        <div class="category-container">
+            <section class="category-section">
+                <div class="category-bar">
+                    <img class="category-icon" src="./assets/icons/burger_icon.png" alt="Burger Icon">
+                    <h3 class="category-text">Burger & Sandwiches</h3>
+                </div>
+                <div class="menu_layout" id="burger-sandwiches"></div>
+            </section>
 
-    <section class="category-section">
-        <div class="category-bar">
-            <img class="category-icon" src="./assets/icons/pizza_icon.png" alt="Pizza Icon">
-            <h3 class="category-text">Pizza (30cm)</h3>
-        </div>
-        <div class="menu_layout" id="pizza"></div>
-    </section>
+            <section class="category-section">
+                <div class="category-bar">
+                    <img class="category-icon" src="./assets/icons/pizza_icon.png" alt="Pizza Icon">
+                    <h3 class="category-text">Pizza (30cm)</h3>
+                </div>
+                <div class="menu_layout" id="pizza"></div>
+            </section>
 
-    <section class="category-section">
-        <div class="category-bar">
-            <img class="category-icon" src="./assets/icons/salad_icon.png" alt="Salad Icon">
-            <h3 class="category-text">Salad</h3>
+            <section class="category-section">
+                <div class="category-bar">
+                    <img class="category-icon" src="./assets/icons/salad_icon.png" alt="Salad Icon">
+                    <h3 class="category-text">Salad</h3>
+                </div>
+                <div class="menu_layout" id="salad"></div>
+            </section>
         </div>
-        <div class="menu_layout" id="salad"></div>
-    </section>
-
-    <section class="basket-wrapper" id="basket">
-    </section>
-</main>
-<footer>
-    <div>
-        <p>&copy; 2026 BurgerHouse</p>
-    </div>
-    <div>
-        <p>Imprint</p> 
-    </div>
-    <div>
-        <p>Cookie Preferences</p> 
-    </div>
+        <div class="basket-wrapper">
+            <section class="basket" id="basket"></section>
+        </div>
+    </main>
+    <footer>
+        <div>
+            <p>&copy; 2026 BurgerHouse</p>
+        </div>
+        <div>
+            <p>Imprint</p>
+        </div>
+        <div>
+            <p>Cookie Preferences</p>
+        </div>
     </footer>
-    
+
 </body>
+
 </html>

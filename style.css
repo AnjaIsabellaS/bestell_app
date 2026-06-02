@@ -113,10 +113,14 @@ h3 {
 
 /* main content & categories */
 main {
-    position: relative; /* Wichtig, damit der absolute Basket sich an main orientiert */
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    box-sizing: border-box;
+    height: 100vh;
     padding-right: 0; 
+    height: 2400px;
+
+    flex-grow: 1;
 }
 
 .category-section {
@@ -249,28 +253,10 @@ main {
 
 /* basket container */
 .basket-wrapper {
-    width: 435px;
-    background-color: #363534; 
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    padding: 30px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    font-family: 'Palanquin', sans-serif;
-
-    /* EXAKTE POSITIONIERUNG HÖHE BURGER-BALKEN */
-    position: absolute;  
-
-    top: 0px;           
-    right: 0;             
-    z-index: 100;         
+ 
     
-    max-height: calc(100vh - 140px);
-    overflow-y: auto;    
+    flex-grow: 1;
+      
 }
 
 .basket-wrapper h3 {
@@ -285,6 +271,26 @@ main {
     display: flex;
     flex-direction: column;
     gap: 16px;
+
+    max-height: 45vh;         /* Maximale Höhe der Liste */
+    overflow-y: auto;         /* Aktiviert den Scrollbalken, wenn die Liste zu lang wird */
+    padding-right: 8px;       /* Verhindert, dass der Scrollbalken Karten überlagert */
+}
+
+/* Styling des Scrollbalkens im Warenkorb */
+#basket-items::-webkit-scrollbar {
+    width: 6px;
+
+}
+
+#basket-items::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+#basket-items::-webkit-scrollbar-thumb {
+    background: rgba(231, 195, 173, 1);
+    border-radius: 10px;
 }
 
 /* basket item cards */
@@ -407,13 +413,12 @@ main {
 }
 
 .empty-text {
-    font-family: 'Palanquin';
-    font-size: 24px;
-    color:rgba(253, 234, 220, 1);
+    color: #A0A0A0;
     text-align: center;
     font-size: 16px;
     padding: 30px 0;
     margin: 0;
+    font-style: italic;
 }
 
 /* footer */
@@ -427,7 +432,7 @@ footer {
     padding-bottom: 33px;
     margin-top: 78px;
 
-    baround-color: rgba(231, 108, 31, 1);
+    background-color: rgba(231, 108, 31, 1);
     font-family: 'Palanquin';
     font-weight: 400;
     font-size: 18px;
@@ -438,3 +443,36 @@ footer {
 .d-none {
     display: none !important;
 }
+
+
+.added {
+    color: #E76C1F; 
+    border: 1px solid #E76C1F;
+    background-color: white;
+}
+
+.basket {
+    width: 435px;
+    height: 830px;
+    background-color: #363534; 
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-family: 'Palanquin', sans-serif;          
+    z-index: 100; 
+    position: sticky;
+    top: 0;
+
+}
+
+.category-container {
+    width: calc(100% - 308px);
+    border: 2px solid blue;
+}
+

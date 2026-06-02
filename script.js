@@ -126,7 +126,7 @@ function getMenuTemplate(index) {
             <p class="menu-description">${menu.description}</p>
         </div>
         <div class="menu-price">${menu.price.toFixed(2).replace('.', ',')}€</div>
-        <button class="add-basket-btn" onclick="addToBasket(${index})">Add to basket</button>
+        <button class="add-basket-btn" onclick="addToBasket(${index}, this)">Add to basket</button>
      </div>
     `;
 }
@@ -142,19 +142,20 @@ function findMenuInBasket(menuName) {
 }
 
 
-function addToBasket(index) {          
+function addToBasket(index, button) {          
     const selectedMenu = menus[index];
     const existingMenu = findMenuInBasket(selectedMenu.name);
 
     if (existingMenu !== null) {
         existingMenu.amount++;
     } else {
-        basket.push({
-            name: selectedMenu.name,
-            price: selectedMenu.price,
-            amount: 1
-        });
+        basket.push({ name: selectedMenu.name, price: selectedMenu.price, amount: 1 });
     }
+    
+    // Die einfache Änderung:
+    const item = findMenuInBasket(selectedMenu.name);
+    button.innerHTML = `Added ${item.amount}`; // Text ändern
+    button.classList.add('added');
     
     renderBasket();
 }
@@ -174,7 +175,7 @@ function renderBasket() {
 function getEmptyBasketTemplate() {
     return `
         <h3>Your Basket</h3>
-        <p class="empty-text">Nothing here yet. Go ahead and choose something delicious!</p>
+        <p class="empty-text">Wähle leckere Gerichte aus der Karte und füge sie deinem Warenkorb hinzu.</p>
     `;
 }
 
