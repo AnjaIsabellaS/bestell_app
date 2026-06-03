@@ -641,14 +641,14 @@ footer {
 }
 
 
-@media screen and (max-width: 11500px) {
+@media screen and (max-width: 1150px) {
 
 .container-menu {
     width: 550px;
 }
 
 .menu_layout {
-    padding-left: 20px;
+    padding-left: 40px;
 }
 
 .category-text {
@@ -699,12 +699,27 @@ footer {
         padding-bottom: 60px;
     }
 
+main {
+    height: 2900px;
+}
 
-    .container-menu {
-        width: 100% !important;
-        max-width: 500px;
-        margin: 0 auto;
+    .hero-image {
+        width: 100%;
+        height: 490px;
+        object-fit: contain;
+        display: block;
     }
+
+.burger-house-logo {
+    margin-top: -250px;
+}
+
+.container-menu {
+    width: 600px;
+    height: 190px;
+    margin: 0 auto;
+}
+
 
     .menu_layout {
         padding-left: 20px;
@@ -720,4 +735,10 @@ footer {
     .category-container {
         width: 100% !important;
     }
+}
+
+
+@media screen and (max-width: 660px) {
+
+
 }
