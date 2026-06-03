@@ -739,6 +739,26 @@ main {
 
 
 @media screen and (max-width: 660px) {
+.category-icon {
+    justify-content: center;
+    width: 88px;
+    height: 91px;
+    object-fit: contain;
+    align-self: center;
+    
+}
 
+.category-bar {
+        padding-left: 0px;
+        flex-direction: column;
+    }
+
+        .container-menu {
+        flex-direction: column;
+        display: flex;
+        width: 200px;
+        height: 190px;
+        margin: 0 auto;
+    }
 
 }
