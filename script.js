@@ -280,16 +280,16 @@ function openOrderDialog() {
     basket.splice(0, basket.length);
     
     // Warenkorb-Container ausblenden
-    const basketWrapper = document.querySelector('.basket-wrapper');
+    const basketWrapper = document.getElementsByClassName('basket-wrapper')[0];
     if (basketWrapper) {
-        basketWrapper.classList.add('d-none');
-    }
+    basketWrapper.classList.add('d-none');
+}
 
     // Layout der Menü-Karten auf 100% Breite setzen
-    const categoryContainer = document.querySelector('.category-container');
+    const categoryContainer = document.getElementsByClassName('category-container')[0];
     if (categoryContainer) {
-        categoryContainer.style.width = "100%"; 
-    }
+    categoryContainer.style.width = "100%";
+}
 
     // Dialog rendern
     const anchor = document.getElementById('dialog-anchor');
@@ -297,8 +297,9 @@ function openOrderDialog() {
         <div class="dialog-overlay" id="order-dialog">
             <div class="dialog-box">
                 <span class="close-btn" onclick="closeDialog()">×</span>
-                <h3>Vielen Dank!</h3>
-                <p>Ihre Bestellung ist unterwegs.</p>
+                <img class="order-icon" src="./assets/icons/order_icon.png" alt="">
+                <p class="dialog-title">Order confirmed!</p>
+                <p class="dialog-text">Your food is on the way!</p>
             </div>
         </div>
     `;
