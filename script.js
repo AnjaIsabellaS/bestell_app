@@ -225,16 +225,16 @@ function getBasketItemTemplate(i) {
     
     return `
         <div class="basket-item-card" style="margin-bottom: 12px;">
-            <h5>${item.amount}x ${item.name}</h5>
+            <h5>${item.amount} x ${item.name}</h5>
             <div class="basket-item-controls">
                 <div class="amount-buttons">
-                    <button class="delete-action-btn" onclick="deleteFromBasket(${i})"><img src="./assets/icons/delete.png" alt="Löschen" class="icon-img"></button>
-                    
-                    <button class="ctrl-btn" onclick="decreaseAmount(${i})" ${item.amount <= 1 ? 'disabled' : ''}>-</button>
+                    <button class="delete-action-btn" onclick="deleteFromBasket(${i})">
+                        <img src="./assets/icons/delete.png" alt="Löschen" class="icon-img">
+                    </button>
                     
                     <span class="amount-display">${item.amount}</span>
                     
-                    <button class="ctrl-btn" onclick="increaseAmount(${i})">+</button>
+                    <span class="increase-btn" onclick="increaseAmount(${i})">+</span>
                 </div>
                 <div class="basket-item-price">${totalItemPrice.toFixed(2).replace('.', ',')}€</div>
             </div>

@@ -323,8 +323,10 @@ main {
 .amount-buttons {
     display: flex;
     align-items: center;
-    gap: 10px;
 }
+
+
+
 
 .ctrl-btn {
     background-color: transparent; /* Hintergrund entfernen */
@@ -483,24 +485,51 @@ footer {
     gap: 10px;
 }
 
+/* Anpassung für das Müll-Icon */
 .delete-action-btn {
-    color: #888;
+    display: flex;       /* Hilft, das Icon im Button zu zentrieren */
+    align-items: center;
+    justify-content: center;
     background: transparent;
     border: none;
     cursor: pointer;
-    margin-right: 10px;
-    font-size: 18px;
+    padding: 0;
 }
 
 .amount-display {
     display: inline-block;
     width: 25px;
+    color: rgba(54, 53, 52, 1);
+
+
+    font-weight: 700;
+    font-size: 18px;
+    min-width: 20px;     /* Verhindert Springen, wenn sich die Zahl ändert */
     text-align: center;
-    font-weight: bold;
 }
 
 
 .shopping-cart {
     padding-top: 70px;
 }
+
+
+/* Styling für das klickbare Plus-Zeichen im Warenkorb */
+.increase-btn {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgba(54, 53, 52, 1);
+    cursor: pointer;
+    user-select: none; /* Verhindert, dass der Text markiert wird beim Klicken */
+    transition: color 0.2s ease;
+}
+
+.increase-btn:hover {
+    color: #b05610; /* Dunklere Farbe beim Hover */
+}
+
+
+
+
+
 
