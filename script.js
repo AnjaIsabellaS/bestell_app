@@ -225,7 +225,7 @@ function getBasketItemTemplate(i) {
     
     return `
         <div class="basket-item-card" style="margin-bottom: 12px;">
-            <h5>${item.name}</h5>
+            <h5>${item.amount}x ${item.name}</h5>
             <div class="basket-item-controls">
                 <div class="amount-buttons">
                     <button class="delete-action-btn" onclick="deleteFromBasket(${i})"><img src="./assets/icons/delete.png" alt="Löschen" class="icon-img"></button>
