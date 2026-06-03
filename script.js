@@ -215,7 +215,9 @@ function getMainBasketTemplate(prices) {
             <div class="summary-row total-row"><span>Total</span><span>${prices.total.toFixed(2).replace('.', ',')}€</span></div>
         </div>
         
-        <button class="buy-now-btn" id="basket-btn">Buy now (${prices.total.toFixed(2).replace('.', ',')}€)</button>
+        <button class="buy-now-btn" id="basket-btn" onclick="openOrderDialog()">
+            Buy now (${prices.total.toFixed(2).replace('.', ',')}€)
+        </button>
     `;
 }
 
@@ -268,4 +270,50 @@ function decreaseAmount(i) {
 function deleteFromBasket(i) {
     basket.splice(i, 1);
     renderBasket();
+}
+
+
+let dialogTimer;
+
+function openOrderDialog() {
+    // Warenkorb leeren
+    basket.splice(0, basket.length);
+    
+    // Warenkorb-Container ausblenden
+    const basketWrapper = document.querySelector('.basket-wrapper');
+    if (basketWrapper) {
+        basketWrapper.classList.add('d-none');
+    }
+
+    // Layout der Menü-Karten auf 100% Breite setzen
+    const categoryContainer = document.querySelector('.category-container');
+    if (categoryContainer) {
+        categoryContainer.style.width = "100%"; 
+    }
+
+    // Dialog rendern
+    const anchor = document.getElementById('dialog-anchor');
+    anchor.innerHTML = `
+        <div class="dialog-overlay" id="order-dialog">
+            <div class="dialog-box">
+                <span class="close-btn" onclick="closeDialog()">×</span>
+                <h3>Vielen Dank!</h3>
+                <p>Ihre Bestellung ist unterwegs.</p>
+            </div>
+        </div>
+    `;
+
+    // Timer für automatisches Schließen
+    dialogTimer = setTimeout(() => {
+        closeDialog();
+    }, 5000);
+}
+
+function closeDialog() {
+    const anchor = document.getElementById('dialog-anchor');
+    anchor.innerHTML = ""; // Dialog entfernen
+    clearTimeout(dialogTimer); // Timer stoppen
+    
+    // Der Warenkorb bleibt ausgeblendet, 
+    // und die Breite bleibt bei 100% (wie durch openOrderDialog gesetzt)
 }
