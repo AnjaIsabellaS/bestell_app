@@ -223,17 +223,20 @@ function getBasketItemTemplate(i) {
     const item = basket[i];
     const totalItemPrice = item.price * item.amount;
     
+    // Logik: Wenn Menge > 1, zeige Minus, sonst Mülleimer
+    const controlButton = item.amount > 1 
+        ? `<button class="ctrl-btn" onclick="decreaseAmount(${i})">-</button>`
+        : `<button class="delete-action-btn" onclick="deleteFromBasket(${i})"><img src="./assets/icons/delete.png" alt="Löschen" class="icon-img"></button>`;
+
     return `
         <div class="basket-item-card" style="margin-bottom: 12px;">
-            <h5>${item.amount} x ${item.name}</h5>
+            <div class="basket-item-header">
+                <h5>${item.amount} x ${item.name}</h5>
+            </div>
             <div class="basket-item-controls">
                 <div class="amount-buttons">
-                    <button class="delete-action-btn" onclick="deleteFromBasket(${i})">
-                        <img src="./assets/icons/delete.png" alt="Löschen" class="icon-img">
-                    </button>
-                    
+                    ${controlButton}
                     <span class="amount-display">${item.amount}</span>
-                    
                     <span class="increase-btn" onclick="increaseAmount(${i})">+</span>
                 </div>
                 <div class="basket-item-price">${totalItemPrice.toFixed(2).replace('.', ',')}€</div>

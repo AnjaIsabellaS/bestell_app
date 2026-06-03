@@ -525,7 +525,31 @@ footer {
 }
 
 .increase-btn:hover {
-    color: #b05610; /* Dunklere Farbe beim Hover */
+    color: #E76C1F;
+; 
+}
+
+
+.basket-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    margin-bottom: 8px;
+}
+
+
+
+
+.ctrl-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(54, 53, 52, 1);
+;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
 }
 
 
