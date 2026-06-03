@@ -362,7 +362,6 @@ main {
     object-fit: contain;
 }
 
-/* Deaktiviertes Minus soll jetzt grau sein */
 .ctrl-btn:disabled {
     color: #b0afae;
     cursor: not-allowed;
@@ -514,13 +513,13 @@ footer {
 }
 
 
-/* Styling für das klickbare Plus-Zeichen im Warenkorb */
+
 .increase-btn {
     font-size: 20px;
     font-weight: 700;
     color: rgba(54, 53, 52, 1);
     cursor: pointer;
-    user-select: none; /* Verhindert, dass der Text markiert wird beim Klicken */
+    user-select: none; 
     transition: color 0.2s ease;
 }
 
@@ -551,6 +550,36 @@ footer {
     line-height: 1;
 }
 
+
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 24px;  
+    margin-bottom: 10px;
+}
+
+
+.basket-item-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h5 {
+    padding-right: 15px; 
+}
+
+.placeholder-minus {
+    width: 24px; 
+}
+
+
+.ctrl-btn, .delete-action-btn {
+    display: flex;
+    justify-content: center;
+}
 
 
 

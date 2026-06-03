@@ -223,19 +223,27 @@ function getBasketItemTemplate(i) {
     const item = basket[i];
     const totalItemPrice = item.price * item.amount;
     
-    // Logik: Wenn Menge > 1, zeige Minus, sonst Mülleimer
-    const controlButton = item.amount > 1 
-        ? `<button class="ctrl-btn" onclick="decreaseAmount(${i})">-</button>`
-        : `<button class="delete-action-btn" onclick="deleteFromBasket(${i})"><img src="./assets/icons/delete.png" alt="Löschen" class="icon-img"></button>`;
+    // Icon-Definitionen
+    const trashIcon = `
+        <button class="delete-action-btn" onclick="deleteFromBasket(${i})">
+            <img src="./assets/icons/delete.png" alt="Löschen" class="icon-img">
+        </button>`;
+    
+    const minusBtn = `<button class="ctrl-btn" onclick="decreaseAmount(${i})">-</button>`;
+
+    // Logik: Wenn Menge > 1, ist der Müll oben, sonst unten
+    const showTrashTop = item.amount > 1;
 
     return `
         <div class="basket-item-card" style="margin-bottom: 12px;">
-            <div class="basket-item-header">
+            <div class="card-header">
                 <h5>${item.amount} x ${item.name}</h5>
+                ${showTrashTop ? trashIcon : ""}
             </div>
+            
             <div class="basket-item-controls">
                 <div class="amount-buttons">
-                    ${controlButton}
+                    ${showTrashTop ? minusBtn : trashIcon}
                     <span class="amount-display">${item.amount}</span>
                     <span class="increase-btn" onclick="increaseAmount(${i})">+</span>
                 </div>
