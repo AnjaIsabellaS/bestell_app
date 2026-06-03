@@ -452,8 +452,7 @@ footer {
 }
 
 .basket {
-    width: 435px;
-    height: 830px;
+    height: 794px;
     background-color: #363534; 
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
@@ -637,6 +636,88 @@ footer {
 }
 
 
+.mobile-nav-bottom {
+    display: none !important;
+}
 
 
+@media screen and (max-width: 11500px) {
 
+.container-menu {
+    width: 550px;
+}
+
+.menu_layout {
+    padding-left: 20px;
+}
+
+.category-text {
+    font-size: 30px;
+}
+
+.category-bar {
+    padding-left: 80px;
+}
+}
+
+
+@media screen and (max-width: 896px) {
+    nav {
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+    }
+
+ 
+/* Überschreibe das allgemeine Nav-Styling für die mobile Variante */
+.mobile-nav-bottom {
+    display: flex !important; /* Wichtig */
+    position: fixed !important;
+    bottom: 0 !important;
+    top: auto !important; /* Erzwingt, dass es nicht am Top klebt */
+    left: 0;
+    width: 100%;
+    margin: 0 !important; /* Sicherstellen, dass keine Margins drücken */
+    padding: 0 !important;
+}
+
+    .mobile-nav-btn {
+        background: transparent;
+        border: none;
+        color: white;
+        font-family: 'Palanquin', sans-serif;
+        font-size: 14px;
+        cursor: pointer;
+        padding: 10px;
+        flex: 1;
+    }
+
+  
+    body {
+        padding-bottom: 60px;
+    }
+
+
+    .container-menu {
+        width: 100% !important;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .menu_layout {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .basket-wrapper {
+        display: none !important;
+    }
+
+    /* Damit sich der Hauptinhalt über die volle Breite erstreckt, 
+       wenn der Warenkorb weg ist: */
+    .category-container {
+        width: 100% !important;
+    }
+}

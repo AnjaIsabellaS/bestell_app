@@ -318,3 +318,4 @@ function closeDialog() {
     // Der Warenkorb bleibt ausgeblendet, 
     // und die Breite bleibt bei 100% (wie durch openOrderDialog gesetzt)
 }
+
