@@ -175,7 +175,8 @@ function renderBasket() {
 function getEmptyBasketTemplate() {
     return `
         <h3>Your Basket</h3>
-        <p class="empty-text">Wähle leckere Gerichte aus der Karte und füge sie deinem Warenkorb hinzu.</p>
+        <p class="empty-text">Nothing here yet.</br> Go ahead and choose something delicious!</p>
+        <img class="shopping-cart" src="./assets/icons/shopping_cart.png" alt="">
     `;
 }
 
@@ -224,14 +225,14 @@ function getBasketItemTemplate(i) {
     
     return `
         <div class="basket-item-card" style="margin-bottom: 12px;">
-            <h5>${item.amount}x ${item.name}</h5>
+            <h5>${item.name}</h5>
             <div class="basket-item-controls">
                 <div class="amount-buttons">
-                    <button class="ctrl-btn delete-btn" onclick="deleteFromBasket(${i})">
-                        <img src="./assets/icons/delete.png" alt="Löschen" class="icon-img">
-                    </button>
+                    <button class="delete-action-btn" onclick="deleteFromBasket(${i})"><img src="./assets/icons/delete.png" alt="Löschen" class="icon-img"></button>
                     
-                    <button class="ctrl-btn" onclick="decreaseAmount(${i})" ${item.amount <= 1 ? 'disabled' : ''}>−</button>
+                    <button class="ctrl-btn" onclick="decreaseAmount(${i})" ${item.amount <= 1 ? 'disabled' : ''}>-</button>
+                    
+                    <span class="amount-display">${item.amount}</span>
                     
                     <button class="ctrl-btn" onclick="increaseAmount(${i})">+</button>
                 </div>

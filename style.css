@@ -260,6 +260,9 @@ main {
 }
 
 .basket-wrapper h3 {
+    font-family: 'Palanquin';
+    color: rgba(253, 234, 220, 1);
+
     font-size: 32px;
     font-weight: 700;
     margin: 0 0 24px 0;
@@ -324,26 +327,21 @@ main {
 }
 
 .ctrl-btn {
-    background-color: white;
-    border: 1px solid #E76C1F;
+    background-color: transparent; /* Hintergrund entfernen */
+    border: none;                  /* Rahmen entfernen */
     color: #E76C1F;
-    font-size: 18px;
+    font-size: 24px;               /* Etwas größer für bessere Klickbarkeit */
     font-weight: 700;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
-    transition: all 0.2s ease;
-    padding: 0;
+    transition: color 0.2s ease;
+    padding: 0 10px;               /* Etwas Platz zum Klicken */
     user-select: none;
+    line-height: 1;
 }
 
 .ctrl-btn:hover:not(:disabled) {
-    background-color: #E76C1F;
-    color: white;
+    color: #b05610;                /* Dunklerer Ton beim Hover */
+    background-color: transparent;
 }
 
 .delete-btn {
@@ -362,11 +360,11 @@ main {
     object-fit: contain;
 }
 
+/* Deaktiviertes Minus soll jetzt grau sein */
 .ctrl-btn:disabled {
-    border-color: #b0afae;
     color: #b0afae;
     cursor: not-allowed;
-    background-color: #f2f2f2;
+    background-color: transparent;
 }
 
 .basket-item-price {
@@ -413,12 +411,13 @@ main {
 }
 
 .empty-text {
-    color: #A0A0A0;
+    font-family: 'Palanquin';
+    color:rgba(253, 234, 220, 1);
+;
     text-align: center;
     font-size: 16px;
     padding: 30px 0;
     margin: 0;
-    font-style: italic;
 }
 
 /* footer */
@@ -474,5 +473,34 @@ footer {
 .category-container {
     width: calc(100% - 308px);
     border: 2px solid blue;
+}
+
+
+/* Styling für die Warenkorb-Controls */
+.basket-controls-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.delete-action-btn {
+    color: #888;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.amount-display {
+    display: inline-block;
+    width: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.shopping-cart {
+    padding-top: 70px;
 }
 
