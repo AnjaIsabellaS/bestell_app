@@ -679,7 +679,7 @@ main {
 }
 
 .menu_layout {
-    padding-left: 40px;
+    padding-left: 20px;
 }
 
 .menu-title {
@@ -803,10 +803,12 @@ main {
 
 .menu-title {
     font-size: 20px;
+    padding-top: 10px;
 }
 
 .menu-price {
     font-size: 20px;
+    top: 18px;
 }
 
 
