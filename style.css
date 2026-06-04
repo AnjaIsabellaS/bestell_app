@@ -652,22 +652,7 @@ footer {
     display: none;
 }
 
-.price-button {
-    display: flex;
-    align-items: center;    /* Zentriert Preis und Button vertikal */
-    justify-content: flex-end; /* Schiebt alles nach rechts */
-    gap: 15px;              /* DER ABSTAND: Hier kannst du den Wert anpassen */
-    position: absolute;
-    bottom: 15px;
-    right: 25px;
-}
 
-/* Entferne die absolute Positionierung für den Preis selbst, 
-   da er jetzt innerhalb des Flex-Containers liegt */
-.menu-price {
-    position: static; 
-    margin: 0;
-}
 
 
 
@@ -880,8 +865,9 @@ h2 {
 }
 
 .menu-price {
+    padding-top: 208px;
     padding-bottom: 15px;
-    padding-right: 225px;
+    padding-right: 223px;
 }
 
 .price-button {
