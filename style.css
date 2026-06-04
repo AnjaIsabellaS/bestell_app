@@ -853,6 +853,19 @@ h2 {
         height: auto;
     }
 
+.menu-title {
+    padding-top: 8px;
+}
+
+.title-and-description {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.add-basket-btn {
+    padding: 3px 8px;
+}
+
 .mobile-nav-bottom {
     background-color: rgba(54, 53, 52, 1);
     height: 78px;
