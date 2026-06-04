@@ -780,8 +780,21 @@ header {
     margin-top: 46px;
 }
 
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 22px;
+    text-align: center;
+    padding-left: 35px;
+    padding-right: 35px;
+    line-height: 120%;
+    padding-bottom: 32px;
+}
+
 .category-icon {
-    margin-top: -40px;
+    margin-top: -45px;
     justify-content: center;
     width: 58px;
     height: 60px;
