@@ -676,6 +676,33 @@ footer {
 }
 }
 
+.badge {
+    position: absolute;
+    /* Positionierung über dem Icon */
+    top: -1px; 
+    right: 25px; 
+    
+    background-color: rgba(253, 234, 220, 1);
+    color: #E76C1F;
+    
+    /* min-width sorgt dafür, dass es ein Kreis bleibt, 
+       aber bei zweistelligen Zahlen zu einer Ellipse wird */
+    min-width: 20px;
+    height: 20px;
+    padding: 0 4px; 
+    
+    border-radius: 10px; /* Die Hälfte der Höhe für abgerundete Ecken */
+    font-size: 12px;     /* Etwas kleiner als der Kreis selbst */
+    font-weight: 700;
+    
+    /* Zentrierung */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
 
 @media screen and (max-width: 896px) {
     nav {

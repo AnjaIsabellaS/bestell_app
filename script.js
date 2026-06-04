@@ -173,6 +173,7 @@ function addToBasket(index, button) {
     button.classList.add('added');
     
     renderBasket();
+    updateMobileBasketBadge();
 }
 
 function renderBasket() {
@@ -273,6 +274,7 @@ function getBasketItemTemplate(i) {
 function increaseAmount(i) {
     basket[i].amount++;
     renderBasket();
+    updateMobileBasketBadge();
 }
 
 function decreaseAmount(i) {
@@ -280,11 +282,13 @@ function decreaseAmount(i) {
         basket[i].amount--;
         renderBasket();
     }
+    updateMobileBasketBadge();
 }
 
 function deleteFromBasket(i) {
     basket.splice(i, 1);
     renderBasket();
+    updateMobileBasketBadge();
 }
 
 
@@ -297,14 +301,20 @@ function openOrderDialog() {
     // Warenkorb-Container ausblenden
     const basketWrapper = document.getElementsByClassName('basket-wrapper')[0];
     if (basketWrapper) {
-    basketWrapper.classList.add('d-none');
-}
+        basketWrapper.classList.add('d-none');
+    }
 
     // Layout der Menü-Karten auf 100% Breite setzen
     const categoryContainer = document.getElementsByClassName('category-container')[0];
     if (categoryContainer) {
-    categoryContainer.style.width = "100%";
-}
+        categoryContainer.style.width = "100%";
+    }
+
+    // Mobil-Badge ausblenden
+    const badge = document.getElementById('basket-badge');
+    if (badge) {
+        badge.style.display = 'none';
+    }
 
     // Dialog rendern
     const anchor = document.getElementById('dialog-anchor');
@@ -332,5 +342,22 @@ function closeDialog() {
     
     // Der Warenkorb bleibt ausgeblendet, 
     // und die Breite bleibt bei 100% (wie durch openOrderDialog gesetzt)
+}
+
+function updateMobileBasketBadge() {
+    const badge = document.getElementById('basket-badge');
+    let totalAmount = 0;
+
+    // Gesamtzahl aller Artikel berechnen
+    for (let i = 0; i < basket.length; i++) {
+        totalAmount += basket[i].amount;
+    }
+
+    if (totalAmount > 0) {
+        badge.innerText = totalAmount;
+        badge.style.display = 'block'; // Anzeigen
+    } else {
+        badge.style.display = 'none'; // Verstecken, wenn leer
+    }
 }
 
