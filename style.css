@@ -652,6 +652,30 @@ footer {
     display: none;
 }
 
+/* Neues Overlay für den Warenkorb auf Mobilgeräten */
+.basket-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #363534; /* Hintergrundfarbe wie dein Warenkorb */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Button zum Schließen des Warenkorbs im Mobile-Modus */
+.close-basket-btn {
+    align-self: flex-end;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
 
 
 
@@ -716,6 +740,8 @@ footer {
  
 /* Überschreibe das allgemeine Nav-Styling für die mobile Variante */
 .mobile-nav-bottom {
+    background-color: rgba(54, 53, 52, 1);
+    height: 78px;
     display: flex !important; /* Wichtig */
     position: fixed !important;
     bottom: 0 !important;
@@ -736,6 +762,11 @@ footer {
         padding: 10px;
         flex: 1;
     }
+
+.badge {
+    top: 12px;
+    right: 73px;
+}
 
   
     body {
@@ -769,15 +800,26 @@ main {
         padding-right: 20px;
     }
 
-    .basket-wrapper {
+    /*.basket-wrapper {
+        display: none !important;
+    }*/
+
+    .basket-wrapper:not(.basket-overlay) {
         display: none !important;
     }
+
 
     /* Damit sich der Hauptinhalt über die volle Breite erstreckt, 
        wenn der Warenkorb weg ist: */
     .category-container {
         width: 100% !important;
     }
+
+footer {
+    height: 110px;
+    padding-top: 8px;
+}
+
 }
 
 

@@ -361,3 +361,29 @@ function updateMobileBasketBadge() {
     }
 }
 
+
+function openMobileBasket() {
+    const basketWrapper = document.querySelector('.basket-wrapper');
+    
+    // Wir fügen eine CSS-Klasse hinzu, die den Wrapper zum Overlay macht
+    basketWrapper.classList.add('basket-overlay');
+    basketWrapper.style.display = 'flex'; // Sicherstellen, dass er sichtbar ist
+    
+    // Optional: Ein Schließen-Button einfügen, wenn er noch nicht da ist
+    if (!document.getElementById('close-basket')) {
+        const basket = document.getElementById('basket');
+        basket.insertAdjacentHTML('afterbegin', `
+            <span id="close-basket" class="close-basket-btn" onclick="closeMobileBasket()">×</span>
+        `);
+    }
+}
+
+function closeMobileBasket() {
+    const basketWrapper = document.querySelector('.basket-wrapper');
+    basketWrapper.classList.remove('basket-overlay');
+    
+    // Den Schließen-Button wieder entfernen
+    const closeBtn = document.getElementById('close-basket');
+    if (closeBtn) closeBtn.remove();
+}
+
