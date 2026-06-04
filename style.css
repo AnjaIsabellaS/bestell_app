@@ -739,10 +739,45 @@ main {
 
 
 @media screen and (max-width: 660px) {
+
+main {
+    height: 3900px;
+}
+
+header {
+    margin-top: 155px;
+}
+
+.hero-image {
+    display: none;
+}
+
+.hero-image-mobile {
+    width:  343px;
+    height: 346px;
+}
+
+.hero-title {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.burger-house-logo {
+    width: 120px;
+    height: 120px;
+    margin-top: -50px;
+}
+
+.rating {
+    margin-top: 46px;
+}
+
 .category-icon {
+    margin-top: -40px;
     justify-content: center;
-    width: 88px;
-    height: 91px;
+    width: 58px;
+    height: 60px;
     object-fit: contain;
     align-self: center;
     
@@ -751,14 +786,45 @@ main {
 .category-bar {
         padding-left: 0px;
         flex-direction: column;
+        gap: 0px;
     }
 
-        .container-menu {
+.container-menu {
         flex-direction: column;
         display: flex;
-        width: 200px;
-        height: 190px;
+        width: 335px;
+        height: 265px;
         margin: 0 auto;
     }
+
+.category-text {
+    font-size: 32px;
+}
+
+.mobile-nav-bottom {
+    background-color: rgba(54, 53, 52, 1);
+    height: 78px;
+}
+
+ 
+
+footer {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    gap: 9px;
+    height: 128px;
+    padding-top: 22px;
+    padding-bottom: 32px;
+    margin-top: 0px;
+}
+
+}
+
+
+@media screen and (max-width: 374px) {
+
+
 
 }
