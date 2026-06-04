@@ -746,6 +746,14 @@ main {
 
 @media screen and (max-width: 660px) {
 
+nav {
+    display: flex;
+    align-items: center;
+    height: 79px;
+    padding-left: 16px; 
+    justify-content: flex-start;
+}
+
 .burger-menu {
     display: none;
 }
@@ -755,7 +763,7 @@ main {
 }
 
 header {
-    margin-top: 155px;
+    margin-top: 125px;
 }
 
 .hero-image {
