@@ -125,8 +125,10 @@ function getMenuTemplate(index) {
             <h4 class="menu-title">${menu.name}</h4>
             <p class="menu-description">${menu.description}</p>
         </div>
+        <div class="price-button">
         <div class="menu-price">${menu.price.toFixed(2).replace('.', ',')}€</div>
         <button class="add-basket-btn" onclick="addToBasket(${index}, this)">Add to basket</button>
+        </div>
      </div>
     `;
 }

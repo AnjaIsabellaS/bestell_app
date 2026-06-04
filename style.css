@@ -640,6 +640,12 @@ footer {
     display: none !important;
 }
 
+.hero-image-mobile {
+    display: none; /* Standardmäßig ausblenden */
+}
+
+
+
 
 @media screen and (max-width: 1150px) {
 
@@ -753,6 +759,7 @@ header {
 }
 
 .hero-image-mobile {
+    display: block;
     width:  343px;
     height: 346px;
 }
