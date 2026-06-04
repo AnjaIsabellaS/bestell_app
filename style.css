@@ -644,6 +644,14 @@ footer {
     display: none; /* Standardmäßig ausblenden */
 }
 
+.menu-image {
+    display: block;
+}
+
+.menu-image-mobile {
+    display: none;
+}
+
 
 
 
@@ -833,6 +841,17 @@ h2 {
 .category-text {
     font-size: 32px;
 }
+
+.menu-image {
+        display: none;
+    }
+
+.menu-image-mobile {
+        display: block;
+        /* Hier kannst du noch Größen anpassen, z.B.: */
+        width: 100%; 
+        height: auto;
+    }
 
 .mobile-nav-bottom {
     background-color: rgba(54, 53, 52, 1);
