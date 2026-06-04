@@ -97,7 +97,6 @@ const menus = [
     }
 ];
 
-// Leerer Warenkorb
 const basket = [];
 
 function init() { 
@@ -109,14 +108,11 @@ function renderAllMenus() {
     const burgerRef = document.getElementById('burger-sandwiches');
     const pizzaRef = document.getElementById('pizza');
     const saladRef = document.getElementById('salad');
-
     burgerRef.innerHTML = ""; 
     pizzaRef.innerHTML = "";
     saladRef.innerHTML = "";
-
     for (let index = 0; index < menus.length; index++) {
         const selectedMenu = menus[index];
-
         if (selectedMenu.category === "Burger") { 
             burgerRef.innerHTML += getMenuTemplate(index);
         } else if (selectedMenu.category === "Pizza") {          
@@ -129,7 +125,6 @@ function renderAllMenus() {
 
 function getMenuTemplate(index) { 
     const menu = menus[index]; 
-
     return `
       <div class="container-menu">
         <img class="menu-image" src="${menu.image}" alt="${menu.name}"> 
@@ -160,25 +155,20 @@ function findMenuInBasket(menuName) {
 function addToBasket(index, button) {          
     const selectedMenu = menus[index];
     const existingMenu = findMenuInBasket(selectedMenu.name);
-
     if (existingMenu !== null) {
         existingMenu.amount++;
     } else {
         basket.push({ name: selectedMenu.name, price: selectedMenu.price, amount: 1 });
     }
-    
-    // Die einfache Änderung:
     const item = findMenuInBasket(selectedMenu.name);
     button.innerHTML = `Added ${item.amount}`; // Text ändern
     button.classList.add('added');
-    
     renderBasket();
     updateMobileBasketBadge();
 }
 
 function renderBasket() {
     const basketRef = document.getElementById('basket');
-    
     if (basket.length === 0) {
         basketRef.innerHTML = getEmptyBasketTemplate();
     } else {
@@ -200,14 +190,11 @@ function calculateBasketPrices() {
     let subtotal = 0;
     let deliveryFee = 4.99;
     let itemsHtml = "";
-
     for (let i = 0; i < basket.length; i++) {
         subtotal += basket[i].price * basket[i].amount; 
         itemsHtml += getBasketItemTemplate(i);
     }
-
     let total = subtotal + deliveryFee;
-
     return {
         subtotal: subtotal,
         deliveryFee: deliveryFee,
@@ -219,18 +206,15 @@ function calculateBasketPrices() {
 function getMainBasketTemplate(prices) {
     return `
         <h3>Your Basket</h3>
-        
         <div id="basket-items">
             ${prices.itemsHtml}
         </div>
-        
         <div class="basket-summary">
             <div class="summary-row"><span>Subtotal</span><span>${prices.subtotal.toFixed(2).replace('.', ',')}€</span></div>
             <div class="summary-row"><span>Delivery fee</span><span>${prices.deliveryFee.toFixed(2).replace('.', ',')}€</span></div>
             <hr class="summary-divider">
             <div class="summary-row total-row"><span>Total</span><span>${prices.total.toFixed(2).replace('.', ',')}€</span></div>
         </div>
-        
         <button class="buy-now-btn" id="basket-btn" onclick="openOrderDialog()">
             Buy now (${prices.total.toFixed(2).replace('.', ',')}€)
         </button>
@@ -240,18 +224,12 @@ function getMainBasketTemplate(prices) {
 function getBasketItemTemplate(i) {
     const item = basket[i];
     const totalItemPrice = item.price * item.amount;
-    
-    // Icon-Definitionen
     const trashIcon = `
         <button class="delete-action-btn" onclick="deleteFromBasket(${i})">
             <img src="./assets/icons/delete.png" alt="Löschen" class="icon-img">
         </button>`;
-    
     const minusBtn = `<button class="ctrl-btn" onclick="decreaseAmount(${i})">-</button>`;
-
-    // Logik: Wenn Menge > 1, ist der Müll oben, sonst unten
     const showTrashTop = item.amount > 1;
-
     return `
         <div class="basket-item-card" style="margin-bottom: 12px;">
             <div class="card-header">
@@ -298,25 +276,21 @@ function openOrderDialog() {
     // Warenkorb leeren
     basket.splice(0, basket.length);
     
-    // Warenkorb-Container ausblenden
     const basketWrapper = document.getElementsByClassName('basket-wrapper')[0];
     if (basketWrapper) {
         basketWrapper.classList.add('d-none');
     }
 
-    // Layout der Menü-Karten auf 100% Breite setzen
     const categoryContainer = document.getElementsByClassName('category-container')[0];
     if (categoryContainer) {
         categoryContainer.style.width = "100%";
     }
 
-    // Mobil-Badge ausblenden
     const badge = document.getElementById('basket-badge');
     if (badge) {
         badge.style.display = 'none';
     }
 
-    // Dialog rendern
     const anchor = document.getElementById('dialog-anchor');
     anchor.innerHTML = `
         <div class="dialog-overlay" id="order-dialog">
@@ -329,7 +303,6 @@ function openOrderDialog() {
         </div>
     `;
 
-    // Timer für automatisches Schließen
     dialogTimer = setTimeout(() => {
         closeDialog();
     }, 5000);
@@ -337,27 +310,23 @@ function openOrderDialog() {
 
 function closeDialog() {
     const anchor = document.getElementById('dialog-anchor');
-    anchor.innerHTML = ""; // Dialog entfernen
-    clearTimeout(dialogTimer); // Timer stoppen
-    
-    // Der Warenkorb bleibt ausgeblendet, 
-    // und die Breite bleibt bei 100% (wie durch openOrderDialog gesetzt)
+    anchor.innerHTML = ""; 
+    clearTimeout(dialogTimer); 
 }
 
 function updateMobileBasketBadge() {
     const badge = document.getElementById('basket-badge');
     let totalAmount = 0;
 
-    // Gesamtzahl aller Artikel berechnen
     for (let i = 0; i < basket.length; i++) {
         totalAmount += basket[i].amount;
     }
 
     if (totalAmount > 0) {
         badge.innerText = totalAmount;
-        badge.style.display = 'block'; // Anzeigen
+        badge.style.display = 'block'; 
     } else {
-        badge.style.display = 'none'; // Verstecken, wenn leer
+        badge.style.display = 'none'; 
     }
 }
 
@@ -365,11 +334,10 @@ function updateMobileBasketBadge() {
 function openMobileBasket() {
     const basketWrapper = document.querySelector('.basket-wrapper');
     
-    // Wir fügen eine CSS-Klasse hinzu, die den Wrapper zum Overlay macht
     basketWrapper.classList.add('basket-overlay');
-    basketWrapper.style.display = 'flex'; // Sicherstellen, dass er sichtbar ist
+    basketWrapper.style.display = 'flex'; 
     
-    // Optional: Ein Schließen-Button einfügen, wenn er noch nicht da ist
+
     if (!document.getElementById('close-basket')) {
         const basket = document.getElementById('basket');
         basket.insertAdjacentHTML('afterbegin', `
@@ -382,7 +350,6 @@ function closeMobileBasket() {
     const basketWrapper = document.querySelector('.basket-wrapper');
     basketWrapper.classList.remove('basket-overlay');
     
-    // Den Schließen-Button wieder entfernen
     const closeBtn = document.getElementById('close-basket');
     if (closeBtn) closeBtn.remove();
 }

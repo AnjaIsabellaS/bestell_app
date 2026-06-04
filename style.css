@@ -162,7 +162,7 @@ main {
     padding-top: 30px;
     padding-bottom: 45px;
     padding-left: 120px;
-    padding-right: 480px; /* Platzhalter, damit die Karten nicht unter den Basket rutschen */
+    padding-right: 480px; 
 
     display: flex;
     flex-direction: column;
@@ -275,9 +275,9 @@ main {
     flex-direction: column;
     gap: 16px;
 
-    max-height: 45vh;         /* Maximale Höhe der Liste */
-    overflow-y: auto;         /* Aktiviert den Scrollbalken, wenn die Liste zu lang wird */
-    padding-right: 8px;       /* Verhindert, dass der Scrollbalken Karten überlagert */
+    max-height: 45vh;         
+    overflow-y: auto;         
+    padding-right: 8px;      
 }
 
 /* Styling des Scrollbalkens im Warenkorb */
@@ -329,20 +329,20 @@ main {
 
 
 .ctrl-btn {
-    background-color: transparent; /* Hintergrund entfernen */
-    border: none;                  /* Rahmen entfernen */
+    background-color: transparent; 
+    border: none;                  
     color: #E76C1F;
-    font-size: 24px;               /* Etwas größer für bessere Klickbarkeit */
+    font-size: 24px;              
     font-weight: 700;
     cursor: pointer;
     transition: color 0.2s ease;
-    padding: 0 10px;               /* Etwas Platz zum Klicken */
+    padding: 0 10px;              
     user-select: none;
     line-height: 1;
 }
 
 .ctrl-btn:hover:not(:disabled) {
-    color: #b05610;                /* Dunklerer Ton beim Hover */
+    color: #b05610;                
     background-color: transparent;
 }
 
@@ -373,7 +373,7 @@ main {
     font-weight: 700;
 }
 
-/* basket summary and checkout */
+
 .basket-summary {
     width: 100%;
     margin-top: 35px;
@@ -475,16 +475,15 @@ footer {
 }
 
 
-/* Styling für die Warenkorb-Controls */
+
 .basket-controls-container {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-/* Anpassung für das Müll-Icon */
 .delete-action-btn {
-    display: flex;       /* Hilft, das Icon im Button zu zentrieren */
+    display: flex;       
     align-items: center;
     justify-content: center;
     background: transparent;
@@ -501,7 +500,7 @@ footer {
 
     font-weight: 700;
     font-size: 18px;
-    min-width: 20px;     /* Verhindert Springen, wenn sich die Zahl ändert */
+    min-width: 20px;   
     text-align: center;
 }
 
@@ -579,7 +578,7 @@ footer {
     justify-content: center;
 }
 
-/*Dialog-Fenster*/
+
 
 .dialog-overlay {
     position: fixed;
@@ -641,7 +640,7 @@ footer {
 }
 
 .hero-image-mobile {
-    display: none; /* Standardmäßig ausblenden */
+    display: none; 
 }
 
 .menu-image {
@@ -652,14 +651,14 @@ footer {
     display: none;
 }
 
-/* Neues Overlay für den Warenkorb auf Mobilgeräten */
+
 .basket-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #363534; /* Hintergrundfarbe wie dein Warenkorb */
+    background-color: #363534; 
     z-index: 9999;
     display: flex;
     flex-direction: column;
@@ -667,13 +666,41 @@ footer {
     overflow-y: auto;
 }
 
-/* Button zum Schließen des Warenkorbs im Mobile-Modus */
+
 .close-basket-btn {
     align-self: flex-end;
     font-size: 40px;
     color: white;
     cursor: pointer;
     margin-bottom: 20px;
+}
+
+/* Das Badge-Styling */
+.badge {
+    position: absolute;
+    top: 5px; 
+    right: 5px; 
+    
+    background-color: rgba(253, 234, 220, 1);
+    color: #E76C1F;
+    
+    /* Größe und Form */
+    min-width: 16px;
+    height: 16px;
+    padding: 0 2px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; 
+}
+
+.mobile-nav-btn {
+    position: relative;
 }
 
 
@@ -683,12 +710,25 @@ footer {
 
 @media screen and (max-width: 1150px) {
 
+main {
+    height: 3250px;
+}
+
 .container-menu {
-    width: 550px;
+    width: 560px;
+    height: 220px;
 }
 
 .menu_layout {
     padding-left: 40px;
+}
+
+.menu-title {
+    padding-top: 33px;
+}
+
+.menu-price {
+    top: 40px;
 }
 
 .category-text {
@@ -702,24 +742,21 @@ footer {
 
 .badge {
     position: absolute;
-    /* Positionierung über dem Icon */
+
     top: -1px; 
     right: 25px; 
     
     background-color: rgba(253, 234, 220, 1);
     color: #E76C1F;
     
-    /* min-width sorgt dafür, dass es ein Kreis bleibt, 
-       aber bei zweistelligen Zahlen zu einer Ellipse wird */
     min-width: 20px;
     height: 20px;
     padding: 0 4px; 
     
-    border-radius: 10px; /* Die Hälfte der Höhe für abgerundete Ecken */
-    font-size: 12px;     /* Etwas kleiner als der Kreis selbst */
+    border-radius: 10px; 
+    font-size: 12px;     
     font-weight: 700;
     
-    /* Zentrierung */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -738,17 +775,17 @@ footer {
     }
 
  
-/* Überschreibe das allgemeine Nav-Styling für die mobile Variante */
+
 .mobile-nav-bottom {
     background-color: rgba(54, 53, 52, 1);
     height: 78px;
-    display: flex !important; /* Wichtig */
+    display: flex !important; 
     position: fixed !important;
     bottom: 0 !important;
-    top: auto !important; /* Erzwingt, dass es nicht am Top klebt */
+    top: auto !important; 
     left: 0;
     width: 100%;
-    margin: 0 !important; /* Sicherstellen, dass keine Margins drücken */
+    margin: 0 !important; 
     padding: 0 !important;
 }
 
@@ -764,8 +801,9 @@ footer {
     }
 
 .badge {
+    position: absolute;
     top: 12px;
-    right: 73px;
+    right: 90px;
 }
 
   
@@ -774,7 +812,7 @@ footer {
     }
 
 main {
-    height: 2900px;
+    height: 2550px;
 }
 
     .hero-image {
@@ -790,7 +828,7 @@ main {
 
 .container-menu {
     width: 600px;
-    height: 190px;
+    height: 160px;
     margin: 0 auto;
 }
 
@@ -800,17 +838,21 @@ main {
         padding-right: 20px;
     }
 
-    /*.basket-wrapper {
-        display: none !important;
-    }*/
+
 
     .basket-wrapper:not(.basket-overlay) {
         display: none !important;
     }
 
+.menu-title {
+    font-size: 20px;
+}
 
-    /* Damit sich der Hauptinhalt über die volle Breite erstreckt, 
-       wenn der Warenkorb weg ist: */
+.menu-price {
+    font-size: 20px;
+}
+
+
     .category-container {
         width: 100% !important;
     }
@@ -820,6 +862,24 @@ footer {
     padding-top: 8px;
 }
 
+}
+
+
+@media screen and (max-width: 768px) {
+
+.badge {
+    position: absolute;
+    top: 12px;
+    right: 75px;
+}
+
+.menu-title {
+    padding-top: 10px;
+}
+
+.menu-price {
+    top: 18px;
+}
 }
 
 
@@ -919,7 +979,6 @@ h2 {
 
 .menu-image-mobile {
         display: block;
-        /* Hier kannst du noch Größen anpassen, z.B.: */
         width: 100%; 
         height: auto;
     }
@@ -942,10 +1001,10 @@ h2 {
 .price-button {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end; /* Oder space-between, je nach Wunsch */
+        justify-content: flex-end; 
         align-items: center;
         position: static;
-        gap: 10px; /* Hier ggf. für Mobile anpassen */
+        gap: 10px; 
     }
 
 .add-basket-btn {
@@ -955,6 +1014,12 @@ h2 {
 .mobile-nav-bottom {
     background-color: rgba(54, 53, 52, 1);
     height: 78px;
+}
+
+.badge {
+    position: absolute;
+    top: 0px;
+    right: 60px;
 }
 
  
@@ -973,9 +1038,42 @@ footer {
 
 }
 
+@media screen and (max-width: 425px) {
+
+.badge {
+    position: absolute;
+    top: 0px;
+    right: 30px;
+}
+}
 
 @media screen and (max-width: 374px) {
 
+.hero-image-mobile {
+    display: block;
+    width: 300px;
+    height: auto;
+    object-fit: contain;
+    padding-left: 20px;
+    padding-right: 20px;
+}
 
+.category-text {
+    font-size: 28px;
+}
+
+.container-menu {
+    width: 280px;
+}
+
+.menu-price {
+    padding-right: 165px;
+}
+
+.badge {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+}
 
 }
