@@ -746,6 +746,10 @@ main {
 
 @media screen and (max-width: 660px) {
 
+.burger-menu {
+    display: none;
+}
+
 main {
     height: 3900px;
 }
@@ -768,6 +772,7 @@ header {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    gap: 16px;
 }
 
 .burger-house-logo {
