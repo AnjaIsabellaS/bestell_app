@@ -42,7 +42,7 @@ const menus = [
     {
         "name": "Pizza Chorizo",
         "price": 13.90,   
-        "description": "Beef, Bacon, Dill pickles, Smoked cheese, Ketchup, BBQ souse",  
+        "description": "Beef, Bacon, Dill pickles, Smoked cheese, Ketchup, BBQ sauce",  
         "category": "Pizza",
         "image": "./assets/img/pizza_chorizo.png",
         "imageMobile": "./assets/img/pizza_chorizo_mobile.png"
@@ -97,28 +97,32 @@ const menus = [
     }
 ];
 
-const basket = [];
+let basket = [];
+let dialogTimer;
 
 function init() { 
     renderAllMenus(); 
     renderBasket(); 
 }
 
+// Menu Rendering
+
 function renderAllMenus() {
-    const burgerRef = document.getElementById('burger-sandwiches');
-    const pizzaRef = document.getElementById('pizza');
-    const saladRef = document.getElementById('salad');
-    burgerRef.innerHTML = ""; 
-    pizzaRef.innerHTML = "";
-    saladRef.innerHTML = "";
+    const categories = {
+        'Burger': document.getElementById('burger-sandwiches'),
+        'Pizza': document.getElementById('pizza'),
+        'Salad': document.getElementById('salad')
+    };
+
+    for (const key in categories) {
+        categories[key].innerHTML = "";
+    }
+
     for (let index = 0; index < menus.length; index++) {
         const selectedMenu = menus[index];
-        if (selectedMenu.category === "Burger") { 
-            burgerRef.innerHTML += getMenuTemplate(index);
-        } else if (selectedMenu.category === "Pizza") {          
-            pizzaRef.innerHTML += getMenuTemplate(index); 
-        } else if (selectedMenu.category === "Salad") {
-            saladRef.innerHTML += getMenuTemplate(index);
+        const container = categories[selectedMenu.category];
+        if (container) {
+            container.innerHTML += getMenuTemplate(index);
         }
     }
 }
@@ -141,16 +145,7 @@ function getMenuTemplate(index) {
     `;
 }
 
-
-function findMenuInBasket(menuName) {
-    for (let i = 0; i < basket.length; i++) {
-        if (basket[i].name === menuName) {
-            return basket[i]; 
-        }
-    }
-    return null; 
-}
-
+// Basket Logic 
 
 function addToBasket(index, button) {          
     const selectedMenu = menus[index];
@@ -161,10 +156,14 @@ function addToBasket(index, button) {
         basket.push({ name: selectedMenu.name, price: selectedMenu.price, amount: 1 });
     }
     const item = findMenuInBasket(selectedMenu.name);
-    button.innerHTML = `Added ${item.amount}`; // Text ändern
+    button.innerHTML = `Added ${item.amount}`;
     button.classList.add('added');
     renderBasket();
     updateMobileBasketBadge();
+}
+
+function findMenuInBasket(menuName) {
+    return basket.find(item => item.name === menuName) || null;
 }
 
 function renderBasket() {
@@ -177,6 +176,117 @@ function renderBasket() {
     }
 }
 
+function calculateBasketPrices() {
+    let subtotal = basket.reduce((sum, item) => sum + (item.price * item.amount), 0);
+    let deliveryFee = 4.99;
+    let itemsHtml = basket.map((_, i) => getBasketItemTemplate(i)).join('');
+    
+    return {
+        subtotal: subtotal,
+        deliveryFee: deliveryFee,
+        total: subtotal + deliveryFee,
+        itemsHtml: itemsHtml
+    };
+}
+
+// Basket Actions 
+
+function increaseAmount(i) {
+    basket[i].amount++;
+    renderBasket();
+    updateMobileBasketBadge();
+}
+
+function decreaseAmount(i) {
+    if (basket[i].amount > 1) {
+        basket[i].amount--;
+    } else {
+        basket.splice(i, 1);
+    }
+    renderBasket();
+    updateMobileBasketBadge();
+}
+
+function deleteFromBasket(i) {
+    basket.splice(i, 1);
+    renderBasket();
+    updateMobileBasketBadge();
+}
+
+// Checkout / Order Process
+
+function openOrderDialog() {
+    resetBasketData();
+    adjustLayoutForConfirmation();
+    showConfirmationDialog();
+}
+
+function resetBasketData() {
+    basket = [];
+    renderBasket();
+    updateMobileBasketBadge();
+}
+
+function adjustLayoutForConfirmation() {
+    const basketWrapper = document.querySelector('.basket-wrapper');
+    const categoryContainer = document.querySelector('.category-container');
+    const badge = document.getElementById('basket-badge');
+
+    if (basketWrapper) basketWrapper.classList.add('d-none');
+    if (categoryContainer) categoryContainer.style.width = "100%";
+    if (badge) badge.style.display = 'none';
+}
+
+function showConfirmationDialog() {
+    const anchor = document.getElementById('dialog-anchor');
+    anchor.innerHTML = `
+        <div class="dialog-overlay" id="order-dialog">
+            <div class="dialog-box">
+                <span class="close-btn" onclick="closeDialog()">×</span>
+                <img class="order-icon" src="./assets/icons/order_icon.png" alt="">
+                <p class="dialog-title">Order confirmed!</p>
+                <p class="dialog-text">Your food is on the way!</p>
+            </div>
+        </div>
+    `;
+    dialogTimer = setTimeout(closeDialog, 5000);
+}
+
+function closeDialog() {
+    const anchor = document.getElementById('dialog-anchor');
+    anchor.innerHTML = ""; 
+    clearTimeout(dialogTimer); 
+}
+
+// Helper Functions
+
+function updateMobileBasketBadge() {
+    const badge = document.getElementById('basket-badge');
+    let totalAmount = basket.reduce((sum, item) => sum + item.amount, 0);
+
+    if (badge) {
+        badge.innerText = totalAmount;
+        badge.style.display = totalAmount > 0 ? 'block' : 'none';
+    }
+}
+
+function openMobileBasket() {
+    const basketWrapper = document.querySelector('.basket-wrapper');
+    basketWrapper.classList.add('basket-overlay');
+    basketWrapper.style.display = 'flex'; 
+
+    if (!document.getElementById('close-basket')) {
+        const basket = document.getElementById('basket');
+        basket.insertAdjacentHTML('afterbegin', `<span id="close-basket" class="close-basket-btn" onclick="closeMobileBasket()">×</span>`);
+    }
+}
+
+function closeMobileBasket() {
+    const basketWrapper = document.querySelector('.basket-wrapper');
+    basketWrapper.classList.remove('basket-overlay');
+    const closeBtn = document.getElementById('close-basket');
+    if (closeBtn) closeBtn.remove();
+}
 
 function getEmptyBasketTemplate() {
     return `
@@ -186,29 +296,10 @@ function getEmptyBasketTemplate() {
     `;
 }
 
-function calculateBasketPrices() {
-    let subtotal = 0;
-    let deliveryFee = 4.99;
-    let itemsHtml = "";
-    for (let i = 0; i < basket.length; i++) {
-        subtotal += basket[i].price * basket[i].amount; 
-        itemsHtml += getBasketItemTemplate(i);
-    }
-    let total = subtotal + deliveryFee;
-    return {
-        subtotal: subtotal,
-        deliveryFee: deliveryFee,
-        total: total,
-        itemsHtml: itemsHtml
-    };
-}
-
 function getMainBasketTemplate(prices) {
     return `
         <h3>Your Basket</h3>
-        <div id="basket-items">
-            ${prices.itemsHtml}
-        </div>
+        <div id="basket-items">${prices.itemsHtml}</div>
         <div class="basket-summary">
             <div class="summary-row"><span>Subtotal</span><span>${prices.subtotal.toFixed(2).replace('.', ',')}€</span></div>
             <div class="summary-row"><span>Delivery fee</span><span>${prices.deliveryFee.toFixed(2).replace('.', ',')}€</span></div>
@@ -224,22 +315,17 @@ function getMainBasketTemplate(prices) {
 function getBasketItemTemplate(i) {
     const item = basket[i];
     const totalItemPrice = item.price * item.amount;
-    const trashIcon = `
-        <button class="delete-action-btn" onclick="deleteFromBasket(${i})">
-            <img src="./assets/icons/delete.png" alt="Löschen" class="icon-img">
-        </button>`;
-    const minusBtn = `<button class="ctrl-btn" onclick="decreaseAmount(${i})">-</button>`;
-    const showTrashTop = item.amount > 1;
+    const trashIcon = `<button class="delete-action-btn" onclick="deleteFromBasket(${i})"><img src="./assets/icons/delete.png" alt="Löschen" class="icon-img"></button>`;
+    
     return `
         <div class="basket-item-card" style="margin-bottom: 12px;">
             <div class="card-header">
                 <h5>${item.amount} x ${item.name}</h5>
-                ${showTrashTop ? trashIcon : ""}
+                ${item.amount > 1 ? trashIcon : ""}
             </div>
-            
             <div class="basket-item-controls">
                 <div class="amount-buttons">
-                    ${showTrashTop ? minusBtn : trashIcon}
+                    ${item.amount > 1 ? `<button class="ctrl-btn" onclick="decreaseAmount(${i})">-</button>` : trashIcon}
                     <span class="amount-display">${item.amount}</span>
                     <span class="increase-btn" onclick="increaseAmount(${i})">+</span>
                 </div>
@@ -248,109 +334,3 @@ function getBasketItemTemplate(i) {
         </div>
     `;
 }
-
-function increaseAmount(i) {
-    basket[i].amount++;
-    renderBasket();
-    updateMobileBasketBadge();
-}
-
-function decreaseAmount(i) {
-    if (basket[i].amount > 1) {
-        basket[i].amount--;
-        renderBasket();
-    }
-    updateMobileBasketBadge();
-}
-
-function deleteFromBasket(i) {
-    basket.splice(i, 1);
-    renderBasket();
-    updateMobileBasketBadge();
-}
-
-
-let dialogTimer;
-
-function openOrderDialog() {
-    // Warenkorb leeren
-    basket.splice(0, basket.length);
-    
-    const basketWrapper = document.getElementsByClassName('basket-wrapper')[0];
-    if (basketWrapper) {
-        basketWrapper.classList.add('d-none');
-    }
-
-    const categoryContainer = document.getElementsByClassName('category-container')[0];
-    if (categoryContainer) {
-        categoryContainer.style.width = "100%";
-    }
-
-    const badge = document.getElementById('basket-badge');
-    if (badge) {
-        badge.style.display = 'none';
-    }
-
-    const anchor = document.getElementById('dialog-anchor');
-    anchor.innerHTML = `
-        <div class="dialog-overlay" id="order-dialog">
-            <div class="dialog-box">
-                <span class="close-btn" onclick="closeDialog()">×</span>
-                <img class="order-icon" src="./assets/icons/order_icon.png" alt="">
-                <p class="dialog-title">Order confirmed!</p>
-                <p class="dialog-text">Your food is on the way!</p>
-            </div>
-        </div>
-    `;
-
-    dialogTimer = setTimeout(() => {
-        closeDialog();
-    }, 5000);
-}
-
-function closeDialog() {
-    const anchor = document.getElementById('dialog-anchor');
-    anchor.innerHTML = ""; 
-    clearTimeout(dialogTimer); 
-}
-
-function updateMobileBasketBadge() {
-    const badge = document.getElementById('basket-badge');
-    let totalAmount = 0;
-
-    for (let i = 0; i < basket.length; i++) {
-        totalAmount += basket[i].amount;
-    }
-
-    if (totalAmount > 0) {
-        badge.innerText = totalAmount;
-        badge.style.display = 'block'; 
-    } else {
-        badge.style.display = 'none'; 
-    }
-}
-
-
-function openMobileBasket() {
-    const basketWrapper = document.querySelector('.basket-wrapper');
-    
-    basketWrapper.classList.add('basket-overlay');
-    basketWrapper.style.display = 'flex'; 
-    
-
-    if (!document.getElementById('close-basket')) {
-        const basket = document.getElementById('basket');
-        basket.insertAdjacentHTML('afterbegin', `
-            <span id="close-basket" class="close-basket-btn" onclick="closeMobileBasket()">×</span>
-        `);
-    }
-}
-
-function closeMobileBasket() {
-    const basketWrapper = document.querySelector('.basket-wrapper');
-    basketWrapper.classList.remove('basket-overlay');
-    
-    const closeBtn = document.getElementById('close-basket');
-    if (closeBtn) closeBtn.remove();
-}
-

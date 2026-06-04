@@ -4,7 +4,6 @@
     scroll-behavior: smooth;
 }
 
-/* navigation */
 nav {
     background-color: rgba(231, 108, 31, 1);
     width: 100%;
@@ -29,7 +28,6 @@ nav {
     object-fit: contain;
 }
 
-/* header & hero section */
 header {
     display: flex;
     flex-direction: column;
@@ -111,7 +109,6 @@ h3 {
     color: white;
 }
 
-/* main content & categories */
 main {
     display: flex;
     flex-direction: row;
@@ -169,7 +166,6 @@ main {
     gap: 16px;
 }
 
-/* menu cards */
 .container-menu {
     background-color: rgba(253, 234, 220, 1);
     width: 713px;
@@ -251,12 +247,8 @@ main {
     background-color: #f7f7f7;
 }
 
-/* basket container */
 .basket-wrapper {
- 
-    
-    flex-grow: 1;
-      
+    flex-grow: 1; 
 }
 
 .basket-wrapper h3 {
@@ -280,7 +272,6 @@ main {
     padding-right: 8px;      
 }
 
-/* Styling des Scrollbalkens im Warenkorb */
 #basket-items::-webkit-scrollbar {
     width: 6px;
 
@@ -296,7 +287,6 @@ main {
     border-radius: 10px;
 }
 
-/* basket item cards */
 .basket-item-card {
     background-color: rgba(253, 234, 220, 1);
     border-radius: 20px;
@@ -324,9 +314,6 @@ main {
     display: flex;
     align-items: center;
 }
-
-
-
 
 .ctrl-btn {
     background-color: transparent; 
@@ -421,7 +408,6 @@ main {
     margin: 0;
 }
 
-/* footer */
 footer {
     display: flex;
     justify-content: center;
@@ -443,7 +429,6 @@ footer {
 .d-none {
     display: none !important;
 }
-
 
 .added {
     color: #E76C1F; 
@@ -474,8 +459,6 @@ footer {
     width: calc(100% - 308px);
 }
 
-
-
 .basket-controls-container {
     display: flex;
     align-items: center;
@@ -504,12 +487,9 @@ footer {
     text-align: center;
 }
 
-
 .shopping-cart {
     padding-top: 70px;
 }
-
-
 
 .increase-btn {
     font-size: 20px;
@@ -525,16 +505,12 @@ footer {
 ; 
 }
 
-
 .basket-item-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start; 
     margin-bottom: 8px;
 }
-
-
-
 
 .ctrl-btn {
     background: none;
@@ -547,8 +523,6 @@ footer {
     line-height: 1;
 }
 
-
-
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -556,7 +530,6 @@ footer {
     min-height: 24px;  
     margin-bottom: 10px;
 }
-
 
 .basket-item-controls {
     display: flex;
@@ -572,13 +545,10 @@ footer {
     width: 24px; 
 }
 
-
 .ctrl-btn, .delete-action-btn {
     display: flex;
     justify-content: center;
 }
-
-
 
 .dialog-overlay {
     position: fixed;
@@ -625,7 +595,6 @@ footer {
     color: rgba(253, 234, 220, 1);
 }
 
-
 .dialog-text {
     font-family: 'Palanquin';
     font-weight: 700;
@@ -633,7 +602,6 @@ footer {
     line-height: 120%;
     color: rgba(253, 234, 220, 1);
 }
-
 
 .mobile-nav-bottom {
     display: none !important;
@@ -651,7 +619,6 @@ footer {
     display: none;
 }
 
-
 .basket-overlay {
     position: fixed;
     top: 0;
@@ -666,7 +633,6 @@ footer {
     overflow-y: auto;
 }
 
-
 .close-basket-btn {
     align-self: flex-end;
     font-size: 40px;
@@ -675,24 +641,18 @@ footer {
     margin-bottom: 20px;
 }
 
-/* Das Badge-Styling */
 .badge {
     position: absolute;
     top: 5px; 
     right: 5px; 
-    
     background-color: rgba(253, 234, 220, 1);
     color: #E76C1F;
-    
-    /* Größe und Form */
     min-width: 16px;
     height: 16px;
     padding: 0 2px;
     border-radius: 50%;
     font-size: 10px;
     font-weight: 700;
-    
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -707,7 +667,6 @@ footer {
 
 
 
-
 @media screen and (max-width: 1150px) {
 
 main {
@@ -715,7 +674,7 @@ main {
 }
 
 .container-menu {
-    width: 560px;
+    width: 565px;
     height: 220px;
 }
 
@@ -774,8 +733,6 @@ main {
         z-index: 2;
     }
 
- 
-
 .mobile-nav-bottom {
     background-color: rgba(54, 53, 52, 1);
     height: 78px;
@@ -833,16 +790,16 @@ main {
 }
 
 
-    .menu_layout {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+.menu_layout {
+    padding-left: 20px;
+    padding-right: 20px;
+}
 
 
 
-    .basket-wrapper:not(.basket-overlay) {
-        display: none !important;
-    }
+.basket-wrapper:not(.basket-overlay) {
+    display: none !important;
+}
 
 .menu-title {
     font-size: 20px;
@@ -853,15 +810,14 @@ main {
 }
 
 
-    .category-container {
-        width: 100% !important;
-    }
+.category-container {
+    width: 100% !important;
+}
 
 footer {
     height: 110px;
     padding-top: 8px;
 }
-
 }
 
 
@@ -1022,8 +978,6 @@ h2 {
     right: 60px;
 }
 
- 
-
 footer {
     display: flex;
     flex-direction: column-reverse;
@@ -1035,7 +989,6 @@ footer {
     padding-bottom: 32px;
     margin-top: 0px;
 }
-
 }
 
 @media screen and (max-width: 425px) {
@@ -1075,5 +1028,4 @@ footer {
     top: 0px;
     right: 20px;
 }
-
 }
