@@ -741,7 +741,7 @@ nav {
 }
 
 .nav-content {
-    padding: 20px; 
+        padding: 20px; /* Weniger Padding bei kleinen Bildschirmen */
 }
 
 .mobile-nav-bottom {
