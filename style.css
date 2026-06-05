@@ -6,14 +6,19 @@
 
 nav {
     background-color: rgba(231, 108, 31, 1);
-    width: 100%;
-    padding-top: 49px;
-    padding-bottom: 41px;
-    padding-left: 120px;
-    padding-right: 40px;
+    width: 100%; 
+    display: flex;
+    justify-content: center; 
+}
 
+.nav-content {
+    width: 100%;
+    max-width: 1440px; 
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 49px 40px; 
+    box-sizing: border-box;
 }
 
 .bestell-app-logo {
@@ -727,13 +732,17 @@ main {
 
 
 @media screen and (max-width: 896px) {
-    nav {
-        overflow: hidden;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 2;
-    }
+nav {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.nav-content {
+    padding: 20px; 
+}
 
 .mobile-nav-bottom {
     background-color: rgba(54, 53, 52, 1);
