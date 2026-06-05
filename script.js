@@ -225,6 +225,8 @@ function resetBasketData() {
     basket = [];
     renderBasket();
     updateMobileBasketBadge();
+
+    renderAllMenus();
 }
 
 function adjustLayoutForConfirmation() {
